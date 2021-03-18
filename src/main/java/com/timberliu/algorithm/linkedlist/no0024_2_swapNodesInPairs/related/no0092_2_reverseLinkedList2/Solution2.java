@@ -1,5 +1,7 @@
 package com.timberliu.algorithm.linkedlist.no0024_2_swapNodesInPairs.related.no0092_2_reverseLinkedList2;
 
+import com.timberliu.algorithm.linkedlist.ListNode;
+
 /**
  * 92. 反转链表 2
  *
@@ -9,14 +11,6 @@ package com.timberliu.algorithm.linkedlist.no0024_2_swapNodesInPairs.related.no0
  */
 
 public class Solution2 {
-
-    private static class ListNode {
-        int val;
-        ListNode next;
-        ListNode() {}
-        ListNode(int val) { this.val = val; }
-        ListNode(int val, ListNode next) { this.val = val; this.next = next; }
-    }
 
     public ListNode reverseBetween(ListNode head, int left, int right) {
         if (left == 1) {
@@ -45,16 +39,6 @@ public class Solution2 {
         return newHead;
     }
 
-    public String toString(ListNode head) {
-        ListNode cur = head;
-        StringBuilder sb = new StringBuilder();
-        while (cur != null) {
-            sb.append(cur.val).append(" -> ");
-            cur = cur.next;
-        }
-        return sb.toString();
-    }
-
     public static void main(String[] args) {
         System.out.println("----- https://leetcode-cn.com/problems/reverse-linked-list-ii/ -----");
         System.out.println("----- 1 -----");
@@ -66,7 +50,7 @@ public class Solution2 {
         ListNode l5 = new ListNode(1, l4);
         Solution2 solution1 = new Solution2();
         ListNode head1 = solution1.reverseBetween(l5, 2, 4);
-        System.out.println(solution1.toString(head1));
+        System.out.println(head1);
 
         System.out.println("----- 2 -----");
         solution1.successor = null;
@@ -77,6 +61,6 @@ public class Solution2 {
         ListNode l9 = new ListNode(2, l8);
         ListNode l10 = new ListNode(1, l9);
         ListNode head2 = solution1.reverseBetween(l10, 1, 5);
-        System.out.println(solution1.toString(head2));
+        System.out.println(head2);
     }
 }

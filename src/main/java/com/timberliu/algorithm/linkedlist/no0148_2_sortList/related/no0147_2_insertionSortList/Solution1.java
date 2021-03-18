@@ -1,5 +1,7 @@
 package com.timberliu.algorithm.linkedlist.no0148_2_sortList.related.no0147_2_insertionSortList;
 
+import com.timberliu.algorithm.linkedlist.ListNode;
+
 /**
  * 147. 对链表进行插入排序
  *
@@ -7,27 +9,6 @@ package com.timberliu.algorithm.linkedlist.no0148_2_sortList.related.no0147_2_in
  */
 
 public class Solution1 {
-
-    private static class ListNode {
-        int val;
-        ListNode next;
-        ListNode() { }
-        ListNode(int val) { this.val = val; }
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-    }
-
-    public String toString(ListNode head) {
-        ListNode cur = head;
-        StringBuilder sb = new StringBuilder();
-        while (cur != null) {
-            sb.append(cur.val).append(" -> ");
-            cur = cur.next;
-        }
-        return sb.toString();
-    }
 
     /**
      * 时间复杂度 O(n^2) 任何情况
@@ -97,6 +78,6 @@ public class Solution1 {
         ListNode l6 = new ListNode(4, l5);
         Solution1 solution1 = new Solution1();
         ListNode newHead = solution1.insertionSortList1(l6);
-        System.out.println(solution1.toString(newHead));
+        System.out.println(newHead);
     }
 }

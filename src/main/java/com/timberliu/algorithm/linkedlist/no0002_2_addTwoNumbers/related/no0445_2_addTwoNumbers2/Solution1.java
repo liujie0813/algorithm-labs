@@ -1,5 +1,7 @@
 package com.timberliu.algorithm.linkedlist.no0002_2_addTwoNumbers.related.no0445_2_addTwoNumbers2;
 
+import com.timberliu.algorithm.linkedlist.ListNode;
+
 import java.util.Deque;
 import java.util.LinkedList;
 
@@ -12,13 +14,6 @@ import java.util.LinkedList;
  */
 
 public class Solution1 {
-
-    private static class ListNode {
-        int val;
-        ListNode next;
-        ListNode(int x) { val = x; }
-        ListNode(int x, ListNode next) { val = x; this.next = next; }
-    }
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         Deque<Integer> d1 = new LinkedList<>();
@@ -55,16 +50,6 @@ public class Solution1 {
         return head;
     }
 
-    public String toString(ListNode head) {
-        Solution1.ListNode cur = head;
-        StringBuilder sb = new StringBuilder();
-        while (cur != null) {
-            sb.append(cur.val).append(" -> ");
-            cur = cur.next;
-        }
-        return sb.toString();
-    }
-
     //   1 2 3
     // 1 8 7 4
     // 2 0 1 5
@@ -80,6 +65,6 @@ public class Solution1 {
 
         Solution1 solution1 = new Solution1();
         ListNode listNode = solution1.addTwoNumbers(l3, l7);
-        System.out.println(solution1.toString(listNode));
+        System.out.println(listNode);
     }
 }

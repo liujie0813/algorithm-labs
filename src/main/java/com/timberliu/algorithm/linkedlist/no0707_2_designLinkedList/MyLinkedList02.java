@@ -95,17 +95,6 @@ public class MyLinkedList02 {
         size--;
     }
 
-    @Override
-    public String toString() {
-        Node cur = dummyHead.next;
-        StringBuilder sb = new StringBuilder();
-        while (cur != null) {
-            sb.append(cur.val).append(" -> ");
-            cur = cur.next;
-        }
-        return sb.toString();
-    }
-
     public static void main(String[] args) {
         MyLinkedList02 linkedList = new MyLinkedList02();
         linkedList.addAtHead(7);

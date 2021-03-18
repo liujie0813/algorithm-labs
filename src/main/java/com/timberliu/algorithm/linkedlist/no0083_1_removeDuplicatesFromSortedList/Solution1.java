@@ -1,5 +1,7 @@
 package com.timberliu.algorithm.linkedlist.no0083_1_removeDuplicatesFromSortedList;
 
+import com.timberliu.algorithm.linkedlist.ListNode;
+
 /**
  * 83. 删除排序链表中的重复元素
  *
@@ -7,24 +9,6 @@ package com.timberliu.algorithm.linkedlist.no0083_1_removeDuplicatesFromSortedLi
  */
 
 public class Solution1 {
-
-    private static class ListNode {
-        int val;
-        ListNode next;
-        ListNode() {}
-        ListNode(int val) { this.val = val; }
-        ListNode(int val, ListNode next) { this.val = val; this.next = next; }
-    }
-
-    public String toString(ListNode head) {
-        ListNode cur = head;
-        StringBuilder sb = new StringBuilder();
-        while (cur != null) {
-            sb.append(cur.val).append(" -> ");
-            cur = cur.next;
-        }
-        return sb.toString();
-    }
 
     public ListNode deleteDuplicates1(ListNode head) {
         ListNode cur = head;
@@ -61,13 +45,13 @@ public class Solution1 {
         ListNode l4 = new ListNode(1, l3);
         ListNode l5 = new ListNode(1, l4);
         ListNode head1 = solution1.deleteDuplicates(l5);
-        System.out.println(solution1.toString(head1));
+        System.out.println(head1);
 
         System.out.println("----- 2 -----");
         ListNode l8 = new ListNode(1);
         ListNode l9 = new ListNode(1, l8);
         ListNode l10 = new ListNode(1, l9);
         ListNode head2 = solution1.deleteDuplicates(l10);
-        System.out.println(solution1.toString(head2));
+        System.out.println(head2);
     }
 }

@@ -1,5 +1,7 @@
 package com.timberliu.algorithm.linkedlist.no0024_2_swapNodesInPairs.related.no0234_1_palindromeLinkedList;
 
+import com.timberliu.algorithm.linkedlist.ListNode;
+
 /**
  * 234. 回文链表
  *
@@ -9,14 +11,6 @@ package com.timberliu.algorithm.linkedlist.no0024_2_swapNodesInPairs.related.no0
  */
 
 public class Solution1 {
-
-    private static class ListNode {
-        int val;
-        ListNode next;
-        ListNode() {}
-        ListNode(int val) { this.val = val; }
-        ListNode(int val, ListNode next) { this.val = val; this.next = next; }
-    }
 
     private ListNode left;
 

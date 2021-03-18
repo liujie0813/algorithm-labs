@@ -1,5 +1,7 @@
 package com.timberliu.algorithm.linkedlist.no0021_1_mergeTwoSortedList.related.no0023_3_mergeKSortedLists;
 
+import com.timberliu.algorithm.linkedlist.ListNode;
+
 /**
  * 23. 合并 k 个升序链表
  *
@@ -9,24 +11,6 @@ package com.timberliu.algorithm.linkedlist.no0021_1_mergeTwoSortedList.related.n
  */
 
 public class Solution1 {
-
-    private static class ListNode {
-        int val;
-        ListNode next;
-        ListNode() {}
-        ListNode(int val) { this.val = val; }
-        ListNode(int val, ListNode next) { this.val = val; this.next = next; }
-    }
-
-    public String toString(ListNode head) {
-        ListNode cur = head;
-        StringBuilder sb = new StringBuilder();
-        while (cur != null) {
-            sb.append(cur.val).append(" -> ");
-            cur = cur.next;
-        }
-        return sb.toString();
-    }
 
     public ListNode mergeKLists1(ListNode[] lists) {
         if (lists == null || lists.length == 0) {
@@ -77,6 +61,6 @@ public class Solution1 {
         ListNode[] list = {l3, l6, l9, null};
         Solution1 solution1 = new Solution1();
         ListNode newHead = solution1.mergeKLists1(list);
-        System.out.println(solution1.toString(newHead));
+        System.out.println(newHead);
     }
 }

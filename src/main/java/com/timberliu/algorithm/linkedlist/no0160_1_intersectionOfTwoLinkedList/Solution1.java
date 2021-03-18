@@ -1,5 +1,7 @@
 package com.timberliu.algorithm.linkedlist.no0160_1_intersectionOfTwoLinkedList;
 
+import com.timberliu.algorithm.linkedlist.ListNode;
+
 /**
  * 160. 相交链表
  *
@@ -9,24 +11,6 @@ package com.timberliu.algorithm.linkedlist.no0160_1_intersectionOfTwoLinkedList;
  */
 
 public class Solution1 {
-
-    private static class ListNode {
-        int val;
-        ListNode next;
-        ListNode() {}
-        ListNode(int val) { this.val = val; }
-        ListNode(int val, ListNode next) { this.val = val; this.next = next; }
-    }
-
-    public String toString(ListNode head) {
-        ListNode cur = head;
-        StringBuilder sb = new StringBuilder();
-        while (cur != null) {
-            sb.append(cur.val).append(" -> ");
-            cur = cur.next;
-        }
-        return sb.toString();
-    }
 
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
         ListNode first = headA;

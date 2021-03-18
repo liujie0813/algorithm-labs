@@ -1,5 +1,7 @@
 package com.timberliu.algorithm.linkedlist.no0024_2_swapNodesInPairs;
 
+import com.timberliu.algorithm.linkedlist.ListNode;
+
 /**
  * 24. 两两交换链表中的节点
  *
@@ -9,14 +11,6 @@ package com.timberliu.algorithm.linkedlist.no0024_2_swapNodesInPairs;
  */
 
 public class Solution1 {
-
-    private static class ListNode {
-        int val;
-        ListNode next;
-        ListNode() {}
-        ListNode(int val) { this.val = val; }
-        ListNode(int val, ListNode next) { this.val = val; this.next = next; }
-    }
 
     /**
      * 循环解法
@@ -63,16 +57,6 @@ public class Solution1 {
         return newHead;
     }
 
-    public String toString(ListNode head) {
-        ListNode cur = head;
-        StringBuilder sb = new StringBuilder();
-        while (cur != null) {
-            sb.append(cur.val).append(" -> ");
-            cur = cur.next;
-        }
-        return sb.toString();
-    }
-
     public static void main(String[] args) {
         ListNode l1 = new ListNode(4);
         ListNode l2 = new ListNode(3, l1);
@@ -81,6 +65,6 @@ public class Solution1 {
 
         Solution1 solution1 = new Solution1();
         ListNode res1 = solution1.swapPairs0(l4);
-        System.out.println(solution1.toString(res1));
+        System.out.println(res1);
     }
 }

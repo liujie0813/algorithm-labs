@@ -1,5 +1,7 @@
 package com.timberliu.algorithm.linkedlist.no0021_1_mergeTwoSortedList;
 
+import com.timberliu.algorithm.linkedlist.ListNode;
+
 /**
  * 21. 合并两个有序链表
  *
@@ -7,24 +9,6 @@ package com.timberliu.algorithm.linkedlist.no0021_1_mergeTwoSortedList;
  */
 
 public class Solution1 {
-
-    private static class ListNode {
-        int val;
-        ListNode next;
-        ListNode() {}
-        ListNode(int val) { this.val = val; }
-        ListNode(int val, ListNode next) { this.val = val; this.next = next; }
-    }
-
-    public String toString(ListNode head) {
-        ListNode cur = head;
-        StringBuilder sb = new StringBuilder();
-        while (cur != null) {
-            sb.append(cur.val).append(" -> ");
-            cur = cur.next;
-        }
-        return sb.toString();
-    }
 
     public ListNode mergeTwoLists1(ListNode l1, ListNode l2) {
         ListNode dummy = new ListNode(-1);
@@ -72,6 +56,6 @@ public class Solution1 {
 
         Solution1 solution1 = new Solution1();
         ListNode newHead = solution1.mergeTwoLists2(l3, l7);
-        System.out.println(solution1.toString(newHead));
+        System.out.println(newHead);
     }
 }

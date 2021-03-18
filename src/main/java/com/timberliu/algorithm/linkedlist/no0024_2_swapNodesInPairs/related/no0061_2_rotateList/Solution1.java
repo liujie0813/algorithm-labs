@@ -1,5 +1,7 @@
 package com.timberliu.algorithm.linkedlist.no0024_2_swapNodesInPairs.related.no0061_2_rotateList;
 
+import com.timberliu.algorithm.linkedlist.ListNode;
+
 /**
  * 61. 旋转链表
  *
@@ -7,14 +9,6 @@ package com.timberliu.algorithm.linkedlist.no0024_2_swapNodesInPairs.related.no0
  */
 
 public class Solution1 {
-
-    private static class ListNode {
-        int val;
-        ListNode next;
-        ListNode() {}
-        ListNode(int val) { this.val = val; }
-        ListNode(int val, ListNode next) { this.val = val; this.next = next; }
-    }
 
     public ListNode rotateRight(ListNode head, int k) {
         if (head == null) {
@@ -42,16 +36,6 @@ public class Solution1 {
         return dummyHead.next;
     }
 
-    public String toString(ListNode head) {
-        ListNode cur = head;
-        StringBuilder sb = new StringBuilder();
-        while (cur != null) {
-            sb.append(cur.val).append(" -> ");
-            cur = cur.next;
-        }
-        return sb.toString();
-    }
-
     public static void main(String[] args) {
         System.out.println("----- https://leetcode-cn.com/problems/rotate-list/ -----");
         System.out.println("----- 1 -----");
@@ -62,7 +46,7 @@ public class Solution1 {
         ListNode l4 = new ListNode(4, l3);
         ListNode l5 = new ListNode(5, l4);
         ListNode head1 = solution1.rotateRight(l5, 0);
-        System.out.println(solution1.toString(head1));
+        System.out.println(head1);
 
     }
 }

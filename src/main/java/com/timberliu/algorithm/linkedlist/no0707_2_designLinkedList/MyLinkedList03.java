@@ -117,17 +117,6 @@ public class MyLinkedList03 {
         size--;
     }
 
-    @Override
-    public String toString() {
-        Node cur = dummyHead.next;
-        StringBuilder sb = new StringBuilder();
-        while (cur != dummyTail) {
-            sb.append(cur.val).append(" -> ");
-            cur = cur.next;
-        }
-        return sb.toString();
-    }
-
     public static void main(String[] args) {
         MyLinkedList03 linkedList = new MyLinkedList03();
         linkedList.addAtHead(1);

@@ -1,5 +1,6 @@
 package com.timberliu.algorithm.linkedlist.no0002_2_addTwoNumbers;
 
+import com.timberliu.algorithm.linkedlist.ListNode;
 import com.timberliu.algorithm.linkedlist.no0707_2_designLinkedList.MyLinkedList01;
 
 /**
@@ -12,14 +13,6 @@ import com.timberliu.algorithm.linkedlist.no0707_2_designLinkedList.MyLinkedList
  */
 
 public class Solution1 {
-
-    private static class ListNode {
-        int val;
-        ListNode next;
-        ListNode() {}
-        ListNode(int val) { this.val = val; }
-        ListNode(int val, ListNode next) { this.val = val; this.next = next; }
-    }
 
     private ListNode head;
     private ListNode tail;
@@ -57,16 +50,6 @@ public class Solution1 {
         }
     }
 
-    public String toString(ListNode head) {
-        ListNode cur = head;
-        StringBuilder sb = new StringBuilder();
-        while (cur != null) {
-            sb.append(cur.val).append(" -> ");
-            cur = cur.next;
-        }
-        return sb.toString();
-    }
-
     public static void main(String[] args) {
         ListNode l1 = new ListNode(1);
         ListNode l2 = new ListNode(2, l1);
@@ -79,6 +62,6 @@ public class Solution1 {
 
         Solution1 solution1 = new Solution1();
         ListNode listNode = solution1.addTwoNumbers(l3, l7);
-        System.out.println(solution1.toString(listNode));
+        System.out.println(listNode);
     }
 }

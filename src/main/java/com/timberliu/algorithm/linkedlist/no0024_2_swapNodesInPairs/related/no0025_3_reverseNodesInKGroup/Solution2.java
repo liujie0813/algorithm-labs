@@ -1,5 +1,7 @@
 package com.timberliu.algorithm.linkedlist.no0024_2_swapNodesInPairs.related.no0025_3_reverseNodesInKGroup;
 
+import com.timberliu.algorithm.linkedlist.ListNode;
+
 /**
  * 25. K 个一组翻转链表
  *
@@ -7,14 +9,6 @@ package com.timberliu.algorithm.linkedlist.no0024_2_swapNodesInPairs.related.no0
  */
 
 public class Solution2 {
-
-    private static class ListNode {
-        int val;
-        ListNode next;
-        ListNode() {}
-        ListNode(int val) { this.val = val; }
-        ListNode(int val, ListNode next) { this.val = val; this.next = next; }
-    }
 
     public ListNode reverseKGroup(ListNode head, int k) {
         ListNode dummyHead = new ListNode(-1, head);
@@ -58,16 +52,6 @@ public class Solution2 {
         return prev;
     }
 
-    public String toString(ListNode head) {
-        ListNode cur = head;
-        StringBuilder sb = new StringBuilder();
-        while (cur != null) {
-            sb.append(cur.val).append(" -> ");
-            cur = cur.next;
-        }
-        return sb.toString();
-    }
-
     public static void main(String[] args) {
         System.out.println("----- https://leetcode-cn.com/problems/reverse-nodes-in-k-group/ -----");
         System.out.println("----- 1 -----");
@@ -78,6 +62,6 @@ public class Solution2 {
         ListNode l4 = new ListNode(4, l3);
         ListNode l5 = new ListNode(5, l4);
         ListNode head1 = solution1.reverseKGroup(l2, 1);
-        System.out.println(solution1.toString(head1));
+        System.out.println(head1);
     }
 }

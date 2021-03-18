@@ -1,5 +1,7 @@
 package com.timberliu.algorithm.linkedlist.no0148_2_sortList;
 
+import com.timberliu.algorithm.linkedlist.ListNode;
+
 /**
  * 148. 排序链表
  *
@@ -12,33 +14,6 @@ package com.timberliu.algorithm.linkedlist.no0148_2_sortList;
  */
 
 public class Solution1 {
-
-    private static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-    }
-
-    public String toString(ListNode head) {
-        ListNode cur = head;
-        StringBuilder sb = new StringBuilder();
-        while (cur != null) {
-            sb.append(cur.val).append(" -> ");
-            cur = cur.next;
-        }
-        return sb.toString();
-    }
 
     public ListNode sortList(ListNode head) {
         if (head == null || head.next == null) {
@@ -101,6 +76,6 @@ public class Solution1 {
         ListNode l6 = new ListNode(4, l5);
         Solution1 solution1 = new Solution1();
         ListNode newHead = solution1.sortList(l6);
-        System.out.println(solution1.toString(newHead));
+        System.out.println(newHead);
     }
 }

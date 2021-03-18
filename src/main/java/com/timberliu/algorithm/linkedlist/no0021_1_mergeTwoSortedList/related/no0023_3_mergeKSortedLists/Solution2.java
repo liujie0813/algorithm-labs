@@ -1,35 +1,17 @@
 package com.timberliu.algorithm.linkedlist.no0021_1_mergeTwoSortedList.related.no0023_3_mergeKSortedLists;
 
+import com.timberliu.algorithm.linkedlist.ListNode;
+
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
 /**
  * 23. 合并 k 个升序链表
  *
- *
- *
  * Created by liujie on 2021/3/17
  */
 
 public class Solution2 {
-
-    private static class ListNode {
-        int val;
-        ListNode next;
-        ListNode() {}
-        ListNode(int val) { this.val = val; }
-        ListNode(int val, ListNode next) { this.val = val; this.next = next; }
-    }
-
-    public String toString(ListNode head) {
-        ListNode cur = head;
-        StringBuilder sb = new StringBuilder();
-        while (cur != null) {
-            sb.append(cur.val).append(" -> ");
-            cur = cur.next;
-        }
-        return sb.toString();
-    }
 
     public ListNode mergeKLists(ListNode[] lists) {
         PriorityQueue<ListNode> queue = new PriorityQueue<>(Comparator.comparingInt(node -> node.val));
@@ -67,6 +49,6 @@ public class Solution2 {
         ListNode[] list = {l3, l6, l9, null};
         Solution2 solution1 = new Solution2();
         ListNode newHead = solution1.mergeKLists(list);
-        System.out.println(solution1.toString(newHead));
+        System.out.println(newHead);
     }
 }
