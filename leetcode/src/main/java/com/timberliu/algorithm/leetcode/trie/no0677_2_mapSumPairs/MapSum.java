@@ -1,4 +1,4 @@
-package com.timberliu.algorithm.leetcode.trie.no0208_2_implementTriePrefixTree.related.no0677_2_mapSumPairs;
+package com.timberliu.algorithm.leetcode.trie.no0677_2_mapSumPairs;
 
 /**
  * Created by liujie on 2021/7/28
