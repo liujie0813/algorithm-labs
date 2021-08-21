@@ -12,6 +12,10 @@ package com.timberliu.algorithm.leetcode.array.no0283_1_moveZeroes.related.no002
 
 public class Solution1 {
 
+    /**
+     * 和 i+1 比较
+     * 赋值的是 重复的最后一个
+     */
     public static int removeDuplicates(int[] nums) {
         int index = 0;
         int i = 0;
@@ -25,16 +29,36 @@ public class Solution1 {
         return index;
     }
 
+    /**
+     * 赋值的是 重复的第一个
+     * 和 i-1 比较
+     */
     public static int removeDuplicates1(int[] nums) {
         int index = 0;
         int i = 0;
         while (i < nums.length) {
             nums[index++] = nums[i++];
+            // 跳过重复的
             while (i < nums.length && nums[i] == nums[i - 1]) {
                 i++;
             }
         }
         return index;
+    }
+
+    /**
+     * 与第一种同思路，不同写法
+     */
+    public static int removeDuplicates2(int[] nums) {
+        // k 指向 重复段的第一个
+        int k = 0;
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[k] != nums[i]) {
+                k++;
+                nums[k] = nums[i];
+            }
+        }
+        return k+1;
     }
 
     public static void main(String[] args) {

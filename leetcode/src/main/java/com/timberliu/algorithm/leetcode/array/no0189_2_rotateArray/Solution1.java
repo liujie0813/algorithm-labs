@@ -18,7 +18,9 @@ public class Solution1 {
      * @param k
      */
     public static void rotate1(int[] nums, int k) {
+        // 遍历 k 次
         for (int i = 0; i < k; i++) {
+            // 每次对所有元素移动一位
             int tmp = nums[nums.length - 1];
             for (int j = nums.length - 1; j > 0; j--) {
                 nums[j] = nums[j - 1];
@@ -39,6 +41,7 @@ public class Solution1 {
             return;
         }
         k = k % nums.length;
+        // 使用 k 个辅助空间
         int[] aux = new int[k];
         int index = k - 1;
         for (int i = nums.length - 1; i >= 0; i--) {

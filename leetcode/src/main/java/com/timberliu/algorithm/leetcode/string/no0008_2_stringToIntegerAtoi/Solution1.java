@@ -34,12 +34,25 @@ public class Solution1 {
             index++;
         }
         int res = 0;
+        int intAbsHigh = Integer.MAX_VALUE / 10;
         while (index < s.length() && Character.isDigit(s.charAt(index))) {
             int val = Character.getNumericValue(s.charAt(index));
-            if (res > Integer.MAX_VALUE / 10 || (res == Integer.MAX_VALUE / 10 && (
-                    (negative && val > 8) || (val > 7)))) {
+            // 判断是否溢出
+            if (res > intAbsHigh) {
                 return negative ? Integer.MIN_VALUE : Integer.MAX_VALUE;
             }
+            if (res == intAbsHigh) {
+                if (negative && val > 8) {
+                    return Integer.MIN_VALUE;
+                }
+                if (!negative && val > 7) {
+                    return Integer.MAX_VALUE;
+                }
+            }
+//            if (res > Integer.MAX_VALUE / 10 || (res == Integer.MAX_VALUE / 10 &&
+//                    ((negative && val > 8) || (val > 7)))) {
+//                return negative ? Integer.MIN_VALUE : Integer.MAX_VALUE;
+//            }
             res = res * 10 + val;
             index++;
         }
@@ -64,12 +77,18 @@ public class Solution1 {
         System.out.println(myAtoi("-91283472332"));
 
         System.out.println("----- 6 -----");
-        System.out.println(myAtoi("2147483648"));
+        System.out.println(myAtoi("-2147483648"));
 
         System.out.println("----- 7 -----");
-        System.out.println(myAtoi(""));
+        System.out.println(myAtoi("2147483648"));
 
         System.out.println("----- 8 -----");
+        System.out.println(myAtoi("2147483647"));
+
+        System.out.println("----- 9 -----");
+        System.out.println(myAtoi(""));
+
+        System.out.println("----- 10 -----");
         System.out.println(myAtoi("  "));
 
     }

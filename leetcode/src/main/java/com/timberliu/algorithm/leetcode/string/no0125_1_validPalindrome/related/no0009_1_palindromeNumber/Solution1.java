@@ -21,6 +21,7 @@ package com.timberliu.algorithm.leetcode.string.no0125_1_validPalindrome.related
 public class Solution1 {
 
     public static boolean isPalindrome(int x) {
+        // 如果是 10 的倍数，
         if (x < 0 || (x != 0 && x % 10 == 0)) {
             return false;
         }
