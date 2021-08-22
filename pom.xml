@@ -15,7 +15,7 @@
     <module>basic</module>
     <module>leetcode</module>
     <module>jianzhi-offer</module>
-    <module>exercise</module>
+    <module>cracking</module>
   </modules>
 
   <properties>
