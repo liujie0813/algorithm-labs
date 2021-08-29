@@ -9,7 +9,7 @@ package com.timberliu.algorithm.leetcode.string.no0151_2_reverseWordsInAString;
  *   原理？
  *     1. [left, right) 表示实际字符串
  *     2. 从后往前遍历字符串，先去除尾部空字符
- *     3. 再从后往前继续遍历字符串，如果为空字符，
+ *     3. 再从后往前继续遍历字符串，遇到空字符串，将 [left + 1, right - left - 1) 添加到 res
  *
  * Created by liujie on 2021/3/2
  */
@@ -22,14 +22,17 @@ public class Solution1 {
         }
         char[] chars = s.toCharArray();
         int end = s.length() - 1;
+        // 删除后置空格
         while (end >= 0 && Character.isSpaceChar(chars[end])) {
             end--;
         }
         StringBuilder sb = new StringBuilder();
         int right = end + 1;
         int left = end;
+        // 从后往前遍历，遇到空格，将单词添加到 res
         while (left >= 0) {
             if (Character.isSpaceChar(chars[left])) {
+                // 连续空格时，不能添加
                 if (left != right - 1) {
                     sb.append(chars, left + 1, right - left - 1).append(" ");
                 }
@@ -37,9 +40,11 @@ public class Solution1 {
             }
             left--;
         }
+        // 无前置空格
         if (left != right - 1) {
             return sb.append(chars, left + 1, right - left - 1).toString();
         }
+        // 有前置空格（去掉最后一个空格）
         return sb.length() > 0 ? sb.substring(0, sb.length() - 1) : "";
     }
 
