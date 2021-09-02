@@ -15,12 +15,15 @@ public class Solution1 {
         Deque<Character> stack = new LinkedList<>();
         for (int i = 0; i < s.length(); i++) {
             char cur = s.charAt(i);
+            // 如果是 a 或 b，直接入栈
             if (cur == 'a' || cur == 'b') {
                 stack.push(cur);
             } else {
+                // 如果是 c，栈长度小于 2，false
                 if (stack.size() < 2) {
                     return false;
                 }
+                // 弹出 2 个，分别为 b 和 a，如果不是返回 false
                 if ('b' != stack.pop() || 'a' != stack.pop()) {
                     return false;
                 }

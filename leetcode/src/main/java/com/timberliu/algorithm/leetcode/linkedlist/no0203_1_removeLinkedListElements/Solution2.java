@@ -1,4 +1,4 @@
-package com.timberliu.algorithm.leetcode.linkedlist.no0203_removeLinkedListElements;
+package com.timberliu.algorithm.leetcode.linkedlist.no0203_1_removeLinkedListElements;
 
 import com.timberliu.algorithm.leetcode.linkedlist.ListNode;
 

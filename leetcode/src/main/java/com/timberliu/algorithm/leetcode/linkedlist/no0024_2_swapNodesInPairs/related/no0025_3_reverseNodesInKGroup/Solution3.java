@@ -28,6 +28,7 @@ public class Solution3 {
             if (curEnd == null) {
                 break;
             }
+            // 下一个节点存下来
             ListNode nexStart = curEnd.next;
             curEnd.next = null;
             prevEnd.next = reverse(cur);

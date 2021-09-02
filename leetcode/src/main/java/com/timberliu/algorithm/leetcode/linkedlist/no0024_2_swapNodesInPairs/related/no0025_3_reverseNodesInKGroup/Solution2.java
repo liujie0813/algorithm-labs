@@ -21,6 +21,7 @@ public class Solution2 {
                 reverse(newHead, k);
                 break;
             }
+            // 反转后返回新的头节点，传进去的 cur 是尾节点
             prevEnd.next = newHead;
             prevEnd = cur;
             cur = cur.next;
@@ -36,19 +37,21 @@ public class Solution2 {
     public ListNode reverse(ListNode head, int n) {
         ListNode prev = null;
         ListNode cur = head;
-        int i = 1;
-        while (cur != null && i <= n) {
+        int i = 0;
+        while (cur != null && i < n) {
             ListNode tmp = cur.next;
             cur.next = prev;
             prev = cur;
             cur = tmp;
             i++;
         }
-        if (cur == null && i <= n) {
+        if (cur == null && i < n) {
             last = true;
         } else {
+            // head 为反转后的链表段 尾部，和后面的节点连在一起
             head.next = cur;
         }
+        // prev 为链表新的头，cur 为下一组的第一个节点
         return prev;
     }
 

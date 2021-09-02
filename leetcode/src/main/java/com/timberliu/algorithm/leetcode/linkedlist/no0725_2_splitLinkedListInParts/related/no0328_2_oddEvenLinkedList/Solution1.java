@@ -5,6 +5,10 @@ import com.timberliu.algorithm.leetcode.linkedlist.ListNode;
 /**
  * 328. 奇偶链表
  *
+ *  1. 奇偶两个虚拟头结点
+ *  2. 遍历链表，count 取余
+ *    1).
+ *
  * Created by liujie on 2021/3/18
  */
 
