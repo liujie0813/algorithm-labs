@@ -1,4 +1,4 @@
-package com.timberliu.algorithm.leetcode.stack_queue.no0496_1_nextGreaterElementI.related.no0739_2_dailyTemperatures;
+package com.timberliu.algorithm.leetcode.stack_queue.no0739_2_dailyTemperatures;
 
 import java.util.Arrays;
 import java.util.Deque;
@@ -6,6 +6,9 @@ import java.util.LinkedList;
 
 /**
  * 739. 每日温度
+ *
+ *  单调栈：栈中存储下标，各个下标对应的温度列表中的温度依次递减。
+ *         如果一个下标在单调栈里，则表示尚未找到下一次温度更高的向下表
  *
  * Created by liujie on 2021/3/31
  */
