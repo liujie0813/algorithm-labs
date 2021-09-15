@@ -1,9 +1,9 @@
-package com.timberliu.algorithm.basic.graph;
+package com.timberliu.algorithm.basic.graph.undirected;
 
 import java.util.LinkedList;
 
 /**
- * 图：邻接表表示
+ * 无向图：邻接表表示
  *
  * @author liujie
  * @date 2021/8/30
@@ -14,34 +14,34 @@ public class Graph {
     /**
      * 节点数目
      */
-    private final int V;
+    private final int vertexCount;
 
     /**
      * 边的数目
      */
-    private int E;
+    private int edgeCount;
 
     /**
      * 邻接表
      */
     private LinkedList<Integer>[] adj;
 
-    public Graph(int V) {
-        this.V = V;
-        this.E = 0;
-        adj = new LinkedList[V];
-        for (int i = 0; i < V; i++) {
+    public Graph(int vertexCount) {
+        this.vertexCount = vertexCount;
+        this.edgeCount = 0;
+        adj = new LinkedList[vertexCount];
+        for (int i = 0; i < vertexCount; i++) {
             adj[i] = new LinkedList<>();
         }
     }
 
-    public int V() { return V; }
-    public int E() { return E; }
+    public int vertexCount() { return vertexCount; }
+    public int edgeCount() { return edgeCount; }
 
     public void addEdge(int v, int w) {
         adj[v].add(w);
         adj[w].add(v);
-        E++;
+        edgeCount++;
     }
 
     public Iterable<Integer> adj(int v) {
@@ -51,8 +51,8 @@ public class Graph {
     public static void main(String[] args) {
         /*
          *  0 --- 1
-         *  | \   |
-         *  |   \ |
+         *    \   |
+         *      \ |
          *  3 --- 2
          */
         Graph graph = new Graph(4);
