@@ -30,21 +30,25 @@ public class Solution1 {
 		this.n = grid.length;
 		this.m = grid[0].length;
 		int idx = 2;
-		// area 表示当前格子连通了多少个 1
+		// area 表示当前格子连通了多少个 1，从 2 开始
+		// grid 存储大于 1 的值，表示已经访问过
 		int[] area = new int[m * n + 2];
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < m; j++) {
+				// 找 1，求连通块大小
 				if (grid[i][j] == 1) {
 					area[idx] = dfs(i, j, idx);
 					idx++;
 				}
 			}
 		}
+		// 连通块 最大值
 		int res = 0;
 		for (int a : area) {
 			res = Math.max(res, a);
 		}
 
+		// 找 0 变为 1
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < m; j++) {
 				if (grid[i][j] != 0) {
@@ -66,10 +70,13 @@ public class Solution1 {
 		return res;
 	}
 
+	// 连通在一起的，存储同一个下标 idx，连通块大小对应 area[idx]
 	private int dfs(int i, int j, int idx) {
 		int cnt = 1;
+		// grid 存储 area 的下标
 		grid[i][j] = idx;
 		for (Integer p : getNeighbors(i, j)) {
+			// 上下左右节点为 1，递归判断
 			if (grid[p / m][p % m] == 1) {
 				grid[p / m][p % m] = idx;
 				cnt += dfs(p / m, p % m, idx);
@@ -78,6 +85,7 @@ public class Solution1 {
 		return cnt;
 	}
 
+	// 上下左右四个邻居节点（位置，压缩之后的）
 	private List<Integer> getNeighbors(int x, int y) {
 		List<Integer> res = new ArrayList<>();
 		for (int[] dir : dirs) {
@@ -110,6 +118,13 @@ public class Solution1 {
 		System.out.println(solution1.largestIsland(new int[][] {
 				{1, 1},
 				{1, 1}
+		}));
+
+		System.out.println("----- 4 -----");
+		System.out.println(solution1.largestIsland(new int[][] {
+				{1, 1, 1},
+				{1, 1, 0},
+				{1, 0, 1}
 		}));
 
 	}
