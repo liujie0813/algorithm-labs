@@ -37,6 +37,22 @@ public class TreeNode {
         return rootNode;
     }
 
+    public static TreeNode getTreeNode(TreeNode root, int val) {
+        if (root == null) {
+            return null;
+        }
+        if (root.val == val) {
+            return root;
+        }
+        TreeNode res = null;
+        if (root.left != null) {
+            res = getTreeNode(root.left, val);
+        } else {
+            res = getTreeNode(root.right, val);
+        }
+        return res;
+    }
+
     public static void main(String[] args) {
         TreeNode treeNode = TreeNode.buildTree(Arrays.asList(3, 9, 20, null, null, 15, 7));
         System.out.println(treeNode);
