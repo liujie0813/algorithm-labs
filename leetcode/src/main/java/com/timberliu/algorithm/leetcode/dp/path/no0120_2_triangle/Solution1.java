@@ -1,4 +1,4 @@
-package com.timberliu.algorithm.leetcode.dp.path.no0120_2_Triangle;
+package com.timberliu.algorithm.leetcode.dp.path.no0120_2_triangle;
 
 import java.util.Arrays;
 import java.util.List;

@@ -1,7 +1,9 @@
-package com.timberliu.algorithm.leetcode.dp.no0931_2_minimumFailingPathSum;
+package com.timberliu.algorithm.leetcode.dp.path.no0931_2_minimumFallingPathSum;
 
 /**
  * 931. 下降路径最小和
+ *
+ *   从下往上，需要 O(n) 空间
  *
  * Created by liujie on 2021/7/29
  */
