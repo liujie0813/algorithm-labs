@@ -1,4 +1,4 @@
-package com.timberliu.algorithm.basic.dp.knaspack_01;
+package com.timberliu.algorithm.basic.dp.zero_one_knaspack;
 
 /**
  * 01 背包
