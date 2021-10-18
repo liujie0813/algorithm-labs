@@ -1,9 +1,9 @@
-package com.timberliu.algorithm.leetcode.dp.no0055_2_jumpGame;
+package com.timberliu.algorithm.leetcode.dp.linear.no0055_2_jumpGame;
 
 /**
  * 55. 跳跃游戏
  *
- *   暴力解法：超出时间限制
+ *  贪心：
  *
  * @author liujie
  * @date 2021/8/22

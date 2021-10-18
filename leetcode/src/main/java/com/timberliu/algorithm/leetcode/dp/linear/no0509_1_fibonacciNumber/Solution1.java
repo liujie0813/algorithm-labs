@@ -1,4 +1,4 @@
-package com.timberliu.algorithm.leetcode.dp.no0509_1_fibonacciNumber;
+package com.timberliu.algorithm.leetcode.dp.linear.no0509_1_fibonacciNumber;
 
 /**
  *

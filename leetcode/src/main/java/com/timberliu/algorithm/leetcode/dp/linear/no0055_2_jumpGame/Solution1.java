@@ -1,4 +1,4 @@
-package com.timberliu.algorithm.leetcode.dp.no0055_2_jumpGame;
+package com.timberliu.algorithm.leetcode.dp.linear.no0055_2_jumpGame;
 
 /**
  * 55. 跳跃游戏

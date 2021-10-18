@@ -1,4 +1,4 @@
-package com.timberliu.algorithm.leetcode.dp.no0509_1_fibonacciNumber.related.no0070_1_climbingStairs;
+package com.timberliu.algorithm.leetcode.dp.linear.no0509_1_fibonacciNumber.related.no0070_1_climbingStairs;
 
 /**
  * 70. 爬楼梯
