@@ -13,10 +13,11 @@ package com.timberliu.algorithm.leetcode.dp.linear.no0115_3_distinctSubSequences
  *          f[i][j] = f[i - 1][j - 1]
  *
  *
+ *
  * @author Timber
  * @date 2021/10/18
  */
-public class Solution1 {
+public class Solution2 {
 
 	public int numDistinct(String ss, String tt) {
 		// 往两个字符串的头部追加 空字符，以此构造出可以滚动下去的初始化值
@@ -24,25 +25,22 @@ public class Solution1 {
 		ss = " " + ss;
 		tt = " " + tt;
 		char[] s = ss.toCharArray(), t = tt.toCharArray();
-		int[][] dp = new int[n + 1][m + 1];
-		for (int i = 0; i <= n; i++) {
-			dp[i][0] = 1;
-		}
-
+		int[] dp = new int[m + 1];
+		dp[0] = 1;
 		for (int i = 1; i <= n; i++) {
-			for (int j = 1; j <= m; j++) {
-				dp[i][j] = dp[i - 1][j];
+			for (int j = m; j >= 1; j--) {
+				// dp[j] = dp[j];
 				if (s[i] == t[j]) {
-					dp[i][j] += dp[i - 1][j - 1];
+					dp[j] += dp[j - 1];
 				}
 			}
 		}
-		return dp[n][m];
+		return dp[m];
 	}
 
 	public static void main(String[] args) {
 		System.out.println("----- https://leetcode-cn.com/problems/distinct-subsequences/ -----");
-		Solution1 solution1 = new Solution1();
+		Solution2 solution1 = new Solution2();
 		System.out.println("----- 1 -----");
 		System.out.println(solution1.numDistinct("rabbbit", "rabbit"));
 
