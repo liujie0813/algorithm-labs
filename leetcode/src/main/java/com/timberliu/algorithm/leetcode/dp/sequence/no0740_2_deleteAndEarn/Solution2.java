@@ -33,7 +33,7 @@ public class Solution2 {
 
 		// 删除元素 i 所获得的的最大点数
 		int[] dp = new int[max + 1];
-		dp[1] = cnts[1];
+		dp[1] = 1 * cnts[1];
 		for (int i = 2; i <= max; i++) {
 			//               不删 i     删除 i
 			dp[i] = Math.max(dp[i - 1], dp[i - 2] + i * cnts[i]);
