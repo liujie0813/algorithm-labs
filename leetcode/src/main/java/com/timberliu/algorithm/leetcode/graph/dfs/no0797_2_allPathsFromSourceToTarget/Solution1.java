@@ -13,22 +13,22 @@ public class Solution1 {
 
 	public List<List<Integer>> allPathsSourceTarget(int[][] graph) {
 		List<List<Integer>> res = new ArrayList<>();
-		allPathsSourceTarget(graph, 0, new ArrayList<>(), res);
+		List<Integer> cur = new ArrayList<>();
+		cur.add(0);
+		allPathsSourceTarget(graph, 0, cur, res);
 		return res;
 	}
 
 	private void allPathsSourceTarget(int[][] graph, int cur, List<Integer> path, List<List<Integer>> res) {
 		if (cur == graph.length - 1) {
-			ArrayList<Integer> r = new ArrayList<>(path);
-			r.add(cur);
-			res.add(r);
+			res.add(new ArrayList<>(path));
 			return;
 		}
-		path.add(cur);
 		for (int i : graph[cur]) {
+			path.add(i);
 			allPathsSourceTarget(graph, i, path, res);
+			path.remove(path.size() - 1);
 		}
-		path.remove(path.size() - 1);
 	}
 
 	public static void main(String[] args) {
