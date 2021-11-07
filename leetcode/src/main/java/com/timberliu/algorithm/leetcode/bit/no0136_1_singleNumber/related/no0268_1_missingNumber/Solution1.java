@@ -21,6 +21,15 @@ public class Solution1 {
         return result;
     }
 
+    public static int missingNumber1(int[] nums) {
+        int result = nums.length;
+        // 0-n 异或
+        for (int i = 0; i < nums.length; i++) {
+            result ^= i ^ nums[i];
+        }
+        return result;
+    }
+
     public static void main(String[] args) {
         System.out.println("----- https://leetcode-cn.com/problems/missing-number/ -----");
         System.out.println("----- 1 -----");
@@ -30,10 +39,10 @@ public class Solution1 {
         System.out.println(missingNumber(new int[]{0, 1}));
 
         System.out.println("----- 3 -----");
-        System.out.println(missingNumber(new int[]{9, 6, 4, 2, 3, 5, 7, 0, 1}));
+        System.out.println(missingNumber1(new int[]{9, 6, 4, 2, 3, 5, 7, 0, 1}));
 
         System.out.println("----- 4 -----");
-        System.out.println(missingNumber(new int[]{0}));
+        System.out.println(missingNumber1(new int[]{0}));
 
     }
 }
