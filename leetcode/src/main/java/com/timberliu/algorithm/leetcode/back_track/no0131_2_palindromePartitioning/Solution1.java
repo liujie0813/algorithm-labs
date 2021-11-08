@@ -1,4 +1,4 @@
-package com.timberliu.algorithm.leetcode.back.track.no0131_2_palindromePartitioning;
+package com.timberliu.algorithm.leetcode.back_track.no0131_2_palindromePartitioning;
 
 import java.util.ArrayList;
 import java.util.List;

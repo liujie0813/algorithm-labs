@@ -1,7 +1,6 @@
-package com.timberliu.algorithm.leetcode.back.track.no0039_2_combinationSum;
+package com.timberliu.algorithm.leetcode.back_track.no0039_2_combinationSum;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -10,14 +9,13 @@ import java.util.List;
  * @author Timber
  * @date 2021/11/1
  */
-public class Solution3 {
+public class Solution2 {
 
 	public List<List<Integer>> combinationSum(int[] candidates, int target) {
 		List<List<Integer>> res = new ArrayList<>();
 		if (candidates.length == 0) {
 			return res;
 		}
-		Arrays.sort(candidates);
 		dfs(candidates, 0, target, new ArrayList<>(), res);
 		return res;
 	}
@@ -27,10 +25,10 @@ public class Solution3 {
 			res.add(new ArrayList<>(cur));
 			return;
 		}
+		if (target < 0) {
+			return;
+		}
 		for (int i = begin; i < candidates.length; i++) {
-			if (target - candidates[i] < 0) {
-				break;
-			}
 			cur.add(candidates[i]);
 			dfs(candidates, i,target - candidates[i], cur, res);
 			cur.remove(cur.size() - 1);
@@ -39,7 +37,7 @@ public class Solution3 {
 
 	public static void main(String[] args) {
 		System.out.println("----- https://leetcode-cn.com/problems/combination-sum/ -----");
-		Solution3 solution1 = new Solution3();
+		Solution2 solution1 = new Solution2();
 		System.out.println("----- 1 -----");
 		List<List<Integer>> res1 = solution1.combinationSum(new int[]{2, 3, 6, 7}, 7);
 		for (List<Integer> res : res1) {

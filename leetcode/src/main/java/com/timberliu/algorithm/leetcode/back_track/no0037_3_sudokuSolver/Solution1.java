@@ -1,4 +1,4 @@
-package com.timberliu.algorithm.leetcode.back.track.no0037_3_sudokuSolver;
+package com.timberliu.algorithm.leetcode.back_track.no0037_3_sudokuSolver;
 
 import java.util.Arrays;
 

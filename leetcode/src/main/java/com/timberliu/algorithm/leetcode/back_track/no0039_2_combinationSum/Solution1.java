@@ -1,4 +1,4 @@
-package com.timberliu.algorithm.leetcode.back.track.no0039_2_combinationSum;
+package com.timberliu.algorithm.leetcode.back_track.no0039_2_combinationSum;
 
 import java.util.ArrayList;
 import java.util.List;

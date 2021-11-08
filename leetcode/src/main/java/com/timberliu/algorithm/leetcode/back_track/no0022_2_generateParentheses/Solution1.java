@@ -1,4 +1,4 @@
-package com.timberliu.algorithm.leetcode.back.track.no0022_2_generateParentheses;
+package com.timberliu.algorithm.leetcode.back_track.no0022_2_generateParentheses;
 
 import java.util.ArrayList;
 import java.util.List;
