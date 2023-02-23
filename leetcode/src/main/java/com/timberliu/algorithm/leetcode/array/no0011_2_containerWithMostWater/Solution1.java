@@ -1,7 +1,7 @@
 package com.timberliu.algorithm.leetcode.array.no0011_2_containerWithMostWater;
 
 /**
- * 盛最多睡的容器
+ * 盛最多水的容器
  *
  *   双指针法
  *     时间复杂度：O(n)

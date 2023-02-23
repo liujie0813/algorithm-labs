@@ -1,9 +1,3 @@
-## 
-
-刷题指南：三叶姐 yyds ！！！
-
-[https://github.com/SharingSource/LogicStack-LeetCode/wiki](https://github.com/SharingSource/LogicStack-LeetCode/wiki)
-
 ## 顺序
 
 按照【类别 - 推荐指数(5-4-...) - 难易程度(简-中-难)】
