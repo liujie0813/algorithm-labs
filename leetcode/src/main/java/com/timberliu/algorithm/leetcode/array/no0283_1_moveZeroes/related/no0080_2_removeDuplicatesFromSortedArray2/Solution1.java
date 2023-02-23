@@ -1,7 +1,8 @@
 package com.timberliu.algorithm.leetcode.array.no0283_1_moveZeroes.related.no0080_2_removeDuplicatesFromSortedArray2;
 
 /**
- * 删除排序数组中的重复项 II
+ * 80. 删除排序数组中的重复项 II
+ *   删除重复元素，使出现次数超过 2 次的只出现 2 次
  *
  *   一次遍历法
  *     时间复杂度：O(n)

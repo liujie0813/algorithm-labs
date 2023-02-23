@@ -2,8 +2,15 @@ package com.timberliu.algorithm.leetcode.binary_search.no0035_1_searchInsertPosi
 
 /**
  * 35. 搜索插入位置
+ *   元素存在返回数组下标；不存在返回应该插入的位置；
  *
  *   [left, right) 左闭右开
+ *
+ *   四种情况：
+ *   1. 目标值在数组所有元素之前
+ *   2. 目标值等于数组某一个元素
+ *   3. 目标值插入数组中某一个位置
+ *   4. 目标值在数组所有元素之后
  *
  * Created by liujie on 2021/3/18
  */

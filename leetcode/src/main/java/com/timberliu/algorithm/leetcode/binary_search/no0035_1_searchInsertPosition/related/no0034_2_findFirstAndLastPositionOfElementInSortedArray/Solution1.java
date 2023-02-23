@@ -5,6 +5,13 @@ import java.util.Arrays;
 /**
  * 34. 在排序数组中查找元素的第一个和最后一个位置
  *
+ *  二分法分别查找元素第一个和最后一个位置
+ *
+ *  二分法
+ *  1. 如果 target 在右区间，则 left = mid + 1
+ *  2. 如果 target 在左区间，则 right = mid - 1
+ *  3. 如果 target = arr[mid]，则判断是否为第一个/最后一个元素，或者前一个/后一个元素等于 target
+ *
  * Created by liujie on 2021/3/18
  */
 

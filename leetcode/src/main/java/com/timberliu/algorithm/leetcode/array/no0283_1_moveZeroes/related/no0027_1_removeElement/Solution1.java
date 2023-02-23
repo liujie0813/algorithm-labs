@@ -1,7 +1,12 @@
 package com.timberliu.algorithm.leetcode.array.no0283_1_moveZeroes.related.no0027_1_removeElement;
 
 /**
- * 移除元素
+ * 27. 移除元素
+ *  移除所有等于 val 的元素，返回数组新长度
+ *
+ *  双指针：
+ *  1. 快指针指向当前遍历的元素
+ *  2. 慢指针指向新位置
  *
  *  一次遍历：
  *    时间复杂度：O(n)
