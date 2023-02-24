@@ -1,10 +1,12 @@
-package com.timberliu.algorithm.leetcode.array.no0997_1_squaresOfASortedArray;
+package com.timberliu.algorithm.leetcode.array.no0977_1_squaresOfASortedArray;
 
 import java.util.Arrays;
 
 /**
- * 有序数组的平方
+ * 977. 有序数组的平方
+ *   求平方，并按非递减顺序返回
  *
+ *  双指针
  *   时间复杂度：O(n)
  *   空间复杂度：O(n)
  *

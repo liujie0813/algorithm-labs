@@ -1,4 +1,4 @@
-package com.timberliu.algorithm.leetcode.stack_queue.no0496_1_nextGreaterElementI.related.no0076_3_minimumWindowSubString;
+package com.timberliu.algorithm.leetcode.string.no0076_3_minimumWindowSubString;
 
 /**
  * 76. 最小覆盖子串
