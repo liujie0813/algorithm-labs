@@ -1,9 +1,10 @@
 package com.timberliu.algorithm.leetcode.string.no0344_1_reverseString;
 
 /**
- * 反转字符串
+ * 344. 反转字符串
  *
- *
+ *  双指针
+ *    一个指向开头，一个指向末尾，两个指针同时往中间移动，交换元素
  *
  * Created by liujie on 2021/2/26
  */
