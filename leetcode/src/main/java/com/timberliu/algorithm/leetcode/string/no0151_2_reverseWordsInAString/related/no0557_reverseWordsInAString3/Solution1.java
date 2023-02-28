@@ -24,6 +24,23 @@ public class Solution1 {
         return String.valueOf(chars);
     }
 
+    public static String reverseWords1(String s) {
+        if (s == null || s.isEmpty()) {
+            return s;
+        }
+        char[] chars = s.toCharArray();
+        int left = 0, right = 1;
+        while (left < chars.length) {
+            while (right < chars.length && chars[right] != ' ') {
+                right++;
+            }
+            swap(chars, left, right - 1);
+            left = right + 1;
+            right = left + 1;
+        }
+        return new String(chars);
+    }
+
     private static void swap(char[] chars, int left, int right) {
         while (left <= right) {
             char tmp = chars[left];
