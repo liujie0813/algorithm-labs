@@ -1,4 +1,4 @@
-package com.timberliu.algorithm.leetcode.back_track.no0017_2_letterCombinationsOfAPhoneNumber;
+package com.timberliu.algorithm.leetcode.back_track.combination.no0017_2_letterCombinationsOfAPhoneNumber;
 
 import java.util.*;
 
