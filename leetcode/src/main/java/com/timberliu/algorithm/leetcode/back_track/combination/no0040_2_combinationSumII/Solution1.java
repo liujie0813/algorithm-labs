@@ -1,9 +1,12 @@
-package com.timberliu.algorithm.leetcode.back_track.no0040_2_combinationSumII;
+package com.timberliu.algorithm.leetcode.back_track.combination.no0040_2_combinationSumII;
 
 import java.util.*;
 
 /**
  * 40. 组合总和 II
+ *   给定数组中和为 target 的组合
+ *
+ *   每个元素只能选择一次
  *
  * @author Timber
  * @date 2021/11/1
