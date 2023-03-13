@@ -8,49 +8,40 @@ import java.util.List;
  *
  */
 
-public class Solution1 {
+public class Solution2 {
 
     public static List<String> restoreIpAddresses(String s) {
     	List<String> res = new ArrayList<>();
-    	dfs(s, 0, new ArrayList<>(), res);
+    	dfs(s, 0, 0, new StringBuilder(), res);
     	return res;
     }
 
-    private static void dfs(String s, int curIndex, List<String> curList, List<String> res) {
-    	if (curIndex == s.length() && curList.size() == 4) {
-    		res.add(transfer(curList));
+    private static void dfs(String s, int curIndex, int num, StringBuilder sb, List<String> res) {
+    	if (curIndex == s.length() && num == 4) {
+    		res.add(sb.substring(0, sb.length() - 1));
     		return;
 		}
-    	if (curList.size() == 4) {
+    	if (num == 4) {
     		return;
 		}
 
-    	int num = 0;
+    	int val = 0;
 		for (int i = curIndex; i < s.length(); i++) {
 			char curCh = s.charAt(i);
-			num = 10 * num + (curCh - '0');
-			if (num > 255) {
+			val = 10 * val + (curCh - '0');
+			if (val > 255) {
 				break;
 			}
-			curList.add(String.valueOf(num));
-			dfs(s, i + 1, curList, res);
-			curList.remove(curList.size() - 1);
-			if (num == 0) {
+			String str = String.valueOf(val);
+			int startIndex = sb.length(), endIndex = sb.length() + str.length() + 1;
+			sb.append(str).append(".");
+			dfs(s, i + 1, num + 1, sb, res);
+			sb.delete(startIndex, endIndex);
+			if (val == 0) {
 				break;
 			}
 		}
 
-	}
-
-	private static String transfer(List<String> curList) {
-    	StringBuilder sb = new StringBuilder();
-		for (int i = 0; i < curList.size(); i++) {
-			sb.append(curList.get(i));
-			if (i != curList.size() - 1) {
-				sb.append(".");
-			}
-		}
-		return sb.toString();
 	}
 
     public static void main(String[] args) {

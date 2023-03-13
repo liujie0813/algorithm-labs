@@ -1,9 +1,11 @@
-package com.timberliu.algorithm.leetcode.back_track.no0090_2_subsetsII;
+package com.timberliu.algorithm.leetcode.back_track.subset.no0090_2_subsetsII;
 
 import java.util.*;
 
 /**
  * 90. 子集 II
+ *
+ *  包含重复元素，返回所有可能的子集
  *
  * @author Timber
  * @date 2021/11/2

@@ -1,9 +1,13 @@
-package com.timberliu.algorithm.leetcode.back_track.no0078_2_subsets;
+package com.timberliu.algorithm.leetcode.back_track.subset.no0078_2_subsets;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * 78. 子集
+ *
+ *  元素互不相同，返回所有可能的子集
+ *
  * @author liujie
  * @date 2022/4/26
  */
