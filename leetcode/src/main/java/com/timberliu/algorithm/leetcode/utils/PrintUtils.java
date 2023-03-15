@@ -9,7 +9,7 @@ import java.util.List;
 
 public class PrintUtils {
 
-	public static void printListList(List<List<Integer>> list) {
+	public static void printListListInteger(List<List<Integer>> list) {
 		for (List<Integer> list1 : list) {
 			for (Integer val1 : list1) {
 				System.out.print(val1 + ", ");
@@ -17,6 +17,15 @@ public class PrintUtils {
 			System.out.print("\t");
 		}
 		System.out.println();
+	}
+
+	public static void printListListString(List<List<String>> list) {
+		for (List<String> sub : list) {
+			for (String str : sub) {
+				System.out.println(str);
+			}
+			System.out.println();
+		}
 	}
 
 }

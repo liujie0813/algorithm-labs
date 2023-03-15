@@ -46,7 +46,7 @@ public class Solution1 {
 
     public static void main(String[] args) {
 		List<List<Integer>> res1 = permuteUnique(new int[]{1, 1, 2});
-		PrintUtils.printListList(res1);
+		PrintUtils.printListListInteger(res1);
 
 	}
 

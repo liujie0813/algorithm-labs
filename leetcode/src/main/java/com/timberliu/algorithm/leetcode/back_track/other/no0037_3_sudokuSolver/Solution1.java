@@ -46,23 +46,24 @@ public class Solution1 {
 		if (x == 9) {
 			return true;
 		}
+		// 已经有数字，判断下一个
 		if (board[x][y] != '.') {
 			return dfs(board, x, y + 1);
 		}
-		// 填值
+		// 从 1-9 挨个试
 		for (int i = 0; i < 9; i++) {
 			if (!row[x][i] && !col[y][i] && !cell[x / 3][y / 3][i]) {
 				board[x][y] = (char)(i + '1');
 				row[x][i] = col[y][i] = cell[x / 3][y / 3][i] = true;
 				if (dfs(board, x, y + 1)) {
-					break;
+					return true;
 				} else {
 					board[x][y] = '.';
 					row[x][i] = col[y][i] = cell[x / 3][y / 3][i] = false;
 				}
 			}
 		}
-		return board[x][y] != '.';
+		return false;
 	}
 
 	public static void main(String[] args) {

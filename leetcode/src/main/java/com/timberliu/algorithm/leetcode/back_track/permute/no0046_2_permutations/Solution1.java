@@ -37,13 +37,13 @@ public class Solution1 {
 
     public static void main(String[] args) {
 		List<List<Integer>> res1 = permute(new int[]{1, 2, 3});
-		PrintUtils.printListList(res1);
+		PrintUtils.printListListInteger(res1);
 
 		List<List<Integer>> res2 = permute(new int[]{1, 3, 5, 7});
-		PrintUtils.printListList(res2);
+		PrintUtils.printListListInteger(res2);
 
 		List<List<Integer>> res3 = permute(new int[]{1});
-		PrintUtils.printListList(res3);
+		PrintUtils.printListListInteger(res3);
 	}
 
 }
