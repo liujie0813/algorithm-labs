@@ -3,6 +3,16 @@ package com.timberliu.algorithm.leetcode.greedy.no0121_1_bestTimeToBuyAndSellSto
 /**
  * 122. 买卖股票的最佳时机 II
  *
+ *  最终利润是可分解的，例如第 0 天买入，第 3 天卖出，利润为 prices[3] - prices[0]
+ *     相当于 (prices[3] - prices[2]) + (prices[2] - prices[1]) + (prices[1] - prices[0])
+ *
+ *  股票价格： 7, 1, 5, 3, 6, 4
+ *     利润：    -6 4  -2  3 -2
+ *   只需要收集每天的正利润就可以
+ *
+ *  贪心：
+ *    局部最优：收集每天的正利润
+ *
  * @author Timber
  * @date 2021/11/8
  */
