@@ -3,6 +3,7 @@ package com.timberliu.algorithm.leetcode.greedy.no0121_1_bestTimeToBuyAndSellSto
 /**
  * 122. 买卖股票的最佳时机 II
  *
+ *  关键是利润拆分，不要整体看，而是把整体利润拆分为每天的利润
  *  最终利润是可分解的，例如第 0 天买入，第 3 天卖出，利润为 prices[3] - prices[0]
  *     相当于 (prices[3] - prices[2]) + (prices[2] - prices[1]) + (prices[1] - prices[0])
  *
