@@ -6,8 +6,15 @@ import java.util.Comparator;
 /**
  * 435. 无重叠区间
  *
- *  按照右边界排序，从左向右记录非交叉区间的个数。区间总数减去非交叉区间个数 即 移除的区间最小个数
+ *  区间集合，找到移除区间的最小数量，使剩余区间不重叠
  *
+ *  [1,2], [2,3], [3,4], [1,3]
+ *        3  4
+ *  1     3
+ *     2  3
+ *  1  2
+ *
+ *  按照右边界排序，从左向右记录非交叉区间的个数。区间总数减去非交叉区间个数 即 移除的区间最小个数
  *  求非交叉区间的最大个数
  *
  *  局部最优：优先选右边界最小的区间。如此从左向右遍历，留给下一个区间的空间就更大
@@ -31,6 +38,24 @@ public class Solution1 {
 			// 下一个非交叉区间 >= end
 			if (end <= intervals[i][0]) {
 				end = intervals[i][1];
+				count++;
+			}
+		}
+		return intervals.length - count;
+	}
+
+	public int eraseOverlapIntervals2(int[][] intervals) {
+		if (intervals.length == 0) {
+			return 0;
+		}
+		Arrays.sort(intervals, Comparator.comparingInt(a -> a[0]));
+
+		int count = 0;
+		for (int i = 1; i < intervals.length; i++) {
+			// 当前区间的左边界 小于 上一个区间的右边界
+			if (intervals[i][0] < intervals[i - 1][1]) {
+				// 更新 两个区间的较小右边界
+				intervals[i][1] = Math.min(intervals[i][1], intervals[i - 1][1]);
 				count++;
 			}
 		}
