@@ -28,4 +28,15 @@ public class PrintUtils {
 		}
 	}
 
+	public static void printIntArray(int[][] arr) {
+		for (int[] a : arr) {
+			System.out.print("[");
+			for (int val : a) {
+				System.out.print(val + ", ");
+			}
+			System.out.print("]\n");
+		}
+		System.out.println();
+	}
+
 }
