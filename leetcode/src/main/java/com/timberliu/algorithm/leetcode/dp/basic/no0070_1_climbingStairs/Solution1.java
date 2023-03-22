@@ -1,4 +1,4 @@
-package com.timberliu.algorithm.leetcode.dp.linear.no0509_1_fibonacciNumber.related.no0070_1_climbingStairs;
+package com.timberliu.algorithm.leetcode.dp.basic.no0070_1_climbingStairs;
 
 /**
  * 70. 爬楼梯
@@ -14,13 +14,13 @@ public class Solution1 {
         }
         int first = 1;
         int second = 2;
-        int third = 3;
+        int res = 3;
         for (int i = 3; i <= n; i++) {
-            third = first + second;
+            res = first + second;
             first = second;
-            second = third;
+            second = res;
         }
-        return third;
+        return res;
     }
 
     public static void main(String[] args) {

@@ -1,7 +1,6 @@
 package com.timberliu.algorithm.leetcode.greedy.no0455_1_assignCookies;
 
 import java.util.Arrays;
-import java.util.Comparator;
 
 /**
  * 455. 分发饼干

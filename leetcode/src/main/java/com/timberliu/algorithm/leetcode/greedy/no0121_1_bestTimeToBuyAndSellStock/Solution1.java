@@ -3,6 +3,8 @@ package com.timberliu.algorithm.leetcode.greedy.no0121_1_bestTimeToBuyAndSellSto
 /**
  * 121. 买卖股票的最佳时机
  *
+ *  买卖一次
+ *
  * @author Timber
  * @date 2021/11/8
  */

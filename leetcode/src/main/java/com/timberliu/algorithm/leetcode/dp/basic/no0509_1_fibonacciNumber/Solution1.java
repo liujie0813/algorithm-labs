@@ -1,4 +1,4 @@
-package com.timberliu.algorithm.leetcode.dp.linear.no0509_1_fibonacciNumber;
+package com.timberliu.algorithm.leetcode.dp.basic.no0509_1_fibonacciNumber;
 
 /**
  *
@@ -7,7 +7,7 @@ package com.timberliu.algorithm.leetcode.dp.linear.no0509_1_fibonacciNumber;
  *  0 1 1 2 3 5 8
  *
  *  动态规则思路：
- *    1. 边界条件：f(0) = 1、f(1) = 1
+ *    1. 边界条件：f(0) = 0、f(1) = 1
  *    2. 递推关系（状态转移方程）：f(n) = f(n-1) + f(n-2)
  *    由于 f(n) 只与 f(n-1) 和 f(n-2) 有关，可以使用【滚动数组思想】把空间复杂度优化成 O(1)
  *
