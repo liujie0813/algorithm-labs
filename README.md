@@ -128,7 +128,109 @@ void backtracking(参数) {
 
 ### 基础题目
 
+- 斐波那契：509、70、746
+- 整数拆分：343
+- 不同的二分搜索树：96
+
 ### 背包问题
+
+背包问题：
+- 背包：最大容量 v
+- 物品：
+  - 价值 w
+  - 体积 v
+  - 每个物品的数量
+
+根据每个物品的数量又分为：
+- 01 背包：每个物品只有一个
+- 完全背包：每个物品有无数个
+- 多重背包：不同的物品数量不同
+
+#### 01 背包
+
+**普通解法**
+
+定义：dp[i][j]，考虑前 i 个物品 [0, i]，放到容量为 j 的背包里，最大价值
+
+推导，有两个方向：
+- 不放物品 i：dp[i - 1][j]
+- 放物品 i：dp[i - 1][j - weight[i]] + value[i]
+
+状态转移方程：dp[i][j] = max(dp[i - 1][j], dp[i - 1][j - weigh[i]] + value[i])
+
+初始化：
+- dp[i][0]：容量为 0 时，最大价值一定为 0；
+- dp[0][j]：考虑第 0 个物品，如果 weight[0] 小于等于 capacity，则最大价值为 value[0]；
+
+```java
+public static int maxValue(int capacity, int[] weight, int[] value) {
+    int n = weight.length;
+    int[][] dp = new int[n][capacity + 1];
+    for (int j = weight[0]; j <= capacity; j++) {
+        dp[0][j] = value[0];
+    }
+    // 遍历物品
+    for (int i = 1; i < n; i++) {
+        // 遍历背包容量
+        for (int j = 0; j <= capacity; j++) {
+            if (j < weight[i]) {
+                dp[i][j] = dp[i - 1][j];
+            } else {
+                dp[i][j] = Math.max(dp[i - 1][j], dp[i - 1][j - weight[i]] + value[i]);
+            }
+        }
+    }
+    return dp[n-1][capacity];
+}
+```
+
+**滚动数组，空间优化**
+
+滚动数组：上一层的结果可以重复利用，直接拷贝到当前层。
+
+dp[j]：表示容量为 j 的背包，物品的最大价值和
+
+推导：
+- 不放物品 i：dp[j]，相当于二维数组中的 dp[i-1][j]
+- 放物品 i：dp[j - weight[i]] + value[i]
+
+状态转移方程：dp[j] = Math.max(dp[j], dp[j - weight[i]] + value[i])
+
+初始化：
+- dp[0] = 0：背包容量为 0 时，最大价值一定为 0；
+- dp[i]：由于 dp 数组在推导时都是取最大值，初始化为 0 就好
+
+遍历顺序：
+- 一维 dp 遍历时，背包容量是从大到小
+
+dp[j] 由 dp[j - weight[i]] 推导而来：
+- 如果使用正序遍历，在计算 dp[j] 时，dp[j - weight[i]] 已经被本层的结果覆盖了。对应到二维数组，就是取的是本层 dp[i][j-weight[i]] 的结果，但实际上应该取 dp[i-1][j-weight[i]]。 
+- 但如果使用倒序遍历，在计算 dp[j] 时，dp[j - weight[i]] 还是上一层的结果，还未被覆盖
+
+```java
+public static int maxValue1(int capacity, int[] weight, int[] value) {
+    int n = weight.length;
+    int[] dp = new int[capacity + 1];
+    // 遍历物品
+    for (int i = 0; i < n; i++) {
+        // 需要倒序遍历
+        for (int j = capacity; j >= weight[i]; j--) {
+            dp[j] = Math.max(dp[j], dp[j - weight[i]] + value[i]);
+        }
+    }
+    return dp[capacity];
+}
+```
+
+**完全背包**
+
+
+
+**多重背包**
+
+### 路径问题
+
+- 不同路径：62、63
 
 ### 股票问题
 

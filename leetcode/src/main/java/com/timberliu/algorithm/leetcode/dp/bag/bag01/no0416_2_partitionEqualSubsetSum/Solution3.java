@@ -1,4 +1,4 @@
-package com.timberliu.algorithm.leetcode.dp.bag.no0416_2_partitionEqualSubsetSum;
+package com.timberliu.algorithm.leetcode.dp.bag.bag01.no0416_2_partitionEqualSubsetSum;
 
 /**
  * 416. 分割等和子集
@@ -12,10 +12,13 @@ package com.timberliu.algorithm.leetcode.dp.bag.no0416_2_partitionEqualSubsetSum
  *      原本的： f[0][x] 表示只考虑第一件物品，f[1][x] 表示考虑第一件和第二件物品
  *      调整后：f[0][x] 表示不考虑任何物品，f[1][x] 表示只考虑第一件物品
  *
+ *  将状态定义从 [最多不超过 x 容量] 修改为 [背包容量恰好为 x]
+ *     同时构造出有效值，也就是将 [物品下标调整为从 1 开始，设置 dp[0] 为初始值]
+ *
  * @author Timber
  * @date 2021/10/13
  */
-public class Solution4 {
+public class Solution3 {
 
 	public static boolean canPartition(int[] nums) {
 		int n = nums.length;
@@ -29,17 +32,17 @@ public class Solution4 {
 			return false;
 		}
 
-		boolean[] dp = new boolean[target + 1];
-		dp[0] = true;
+		boolean[][] dp = new boolean[n + 1][target + 1];
+		dp[0][0] = true;
 		for (int i = 1; i <= n; i++) {
 			int t = nums[i - 1];
-			for (int j = target; j >= 0; j--) {
-				boolean no = dp[j];
-				boolean yes = j >= t ? dp[j - t] : false;
-				dp[j] = no | yes;
+			for (int j = 0; j <= target; j++) {
+				boolean no = dp[i - 1][j];
+				boolean yes = j >= t ? dp[i - 1][j - t] : false;
+				dp[i][j] = no | yes;
 			}
 		}
-		return dp[target];
+		return dp[n][target];
 	}
 
 	public static void main(String[] args) {

@@ -1,11 +1,11 @@
-package com.timberliu.algorithm.leetcode.dp.bag.no0494_2_targetSum;
+package com.timberliu.algorithm.leetcode.dp.bag.bag01.no0494_2_targetSum;
 
 /**
  * 494. 目标和
  *
  *  令所有值的绝对值总和为 sum，负值的绝对值总和为 m, 有 (s - m) - m = target， m = (sum - target) / 2
  *
- *  问题转换：只使用 + 运算符，凑出 m 的方案数
+ *  问题转换：只使用 - 运算符，凑出 m 的方案数
  *
  *  状态定义：f[i][j]：考虑前 i 个数，凑出总和恰好为 j 的方案数
  *

@@ -1,4 +1,4 @@
-package com.timberliu.algorithm.leetcode.dp.bag.no0416_2_partitionEqualSubsetSum;
+package com.timberliu.algorithm.leetcode.dp.bag.bag01.no0416_2_partitionEqualSubsetSum;
 
 /**
  * 416. 分割等和子集
@@ -30,10 +30,8 @@ public class Solution2 {
 		int[] dp = new int[target + 1];
 		for (int i = 0; i < nums.length; i++) {
 			int t = nums[i];
-			for (int j = target; j >= nums[i]; j--) {
-				int no = dp[j];
-				int yes = j >= t ? dp[j - t] + t : 0;
-				dp[j] = Math.max(no, yes);
+			for (int j = target; j >= t; j--) {
+				dp[j] = Math.max(dp[j], dp[j - t] + t);
 			}
 		}
 		return dp[target] == target;

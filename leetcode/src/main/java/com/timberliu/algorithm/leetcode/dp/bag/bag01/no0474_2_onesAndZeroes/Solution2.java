@@ -1,4 +1,4 @@
-package com.timberliu.algorithm.leetcode.dp.bag.no0474_2_onesAndZeroes;
+package com.timberliu.algorithm.leetcode.dp.bag.bag01.no0474_2_onesAndZeroes;
 
 /**
  * 474. 一和零
@@ -13,7 +13,7 @@ package com.timberliu.algorithm.leetcode.dp.bag.no0474_2_onesAndZeroes;
  * @date 2021/10/15
  */
 
-public class Solution1 {
+public class Solution2 {
 
 	public static int findMaxForm(String[] strs, int m, int n) {
 		int len = strs.length;
@@ -30,18 +30,16 @@ public class Solution1 {
 			cnt[i] = new int[]{zero, one};
 		}
 
-		int[][][] dp = new int[len + 1][m + 1][n + 1];
+		int[][] dp = new int[m + 1][n + 1];
 		for (int k = 1; k <= len; k++) {
 			int zero = cnt[k - 1][0], one = cnt[k - 1][1];
-			for (int i = 0; i <= m; i++) {
-				for (int j = 0; j <= n; j++) {
-					int no = dp[k - 1][i][j];
-					int yes = (i >= zero && j >= one) ? dp[k - 1][i - zero][j - one] + 1 : 0;
-					dp[k][i][j] = Math.max(no, yes);
+			for (int i = m; i >= zero; i--) {
+				for (int j = n; j >= one; j--) {
+					dp[i][j] = Math.max(dp[i][j], dp[i - zero][j - one] + 1);
 				}
 			}
 		}
-		return dp[len][m][n];
+		return dp[m][n];
 	}
 
 	public static void main(String[] args) {

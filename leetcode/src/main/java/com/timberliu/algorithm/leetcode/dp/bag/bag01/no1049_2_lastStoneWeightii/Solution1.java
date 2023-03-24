@@ -1,4 +1,4 @@
-package com.timberliu.algorithm.leetcode.dp.bag.no1049_2_lastStoneWeightii;
+package com.timberliu.algorithm.leetcode.dp.bag.bag01.no1049_2_lastStoneWeightii;
 
 /**
  * 1049. 最后一块石头的重量 II
