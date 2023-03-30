@@ -1,4 +1,4 @@
-package com.timberliu.algorithm.leetcode.dp.bag.no0279_2_perfectSquares;
+package com.timberliu.algorithm.leetcode.dp.bag.bagComplete.no0279_2_perfectSquares;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,42 +20,26 @@ import java.util.List;
  * @author Timber
  * @date 2021/10/14
  */
-public class Solution2 {
+public class Solution4 {
 
-	int INF = -1;
+	int INF = Integer.MAX_VALUE;
 
 	public int numSquares(int n) {
-		List<Integer> list = new ArrayList<>();
-		int idx = 1;
-		while (idx * idx <= n) {
-			list.add(idx * idx);
-			idx++;
-		}
-
-		int len = list.size();
 		int[] dp = new int[n + 1];
-		// 第一个数
-		for (int j = 0; j <= n; j++) {
-			Integer t = list.get(0);
-			int k = j / t;
-			// 只有容量为 第一个数的 整数倍 时才能凑出
-			if (k * t == j) {
-				dp[j] = k;
-			} else {
-				dp[j] = INF;
-			}
+		// 0 个数
+		for (int j = 1; j <= n; j++) {
+			dp[j] = INF;
 		}
 
-		// 其他数
-		for (int i = 1; i < len; i++) {
-			Integer t = list.get(i);
-			for (int j = t; j <= n; j++) {
+		// 1个及以上
+		// 物品
+		for (int i = 1; i * i <= n; i++) {
+			// 容量
+			for (int j = i * i; j <= n; j++) {
 				// 不选第 i 个数
 //				dp[j] = dp[j];
 				// 选第 i 个数
-				if (dp[j - t] != INF) {
-					dp[j] = Math.min(dp[j], dp[j - t] + 1);
-				}
+				dp[j] = Math.min(dp[j], dp[j - i * i] + 1);
 			}
 		}
 		return dp[n];
@@ -63,7 +47,7 @@ public class Solution2 {
 
 	public static void main(String[] args) {
 		System.out.println("----- https://leetcode-cn.com/problems/perfect-squares/ -----");
-		Solution2 solution1 = new Solution2();
+		Solution4 solution1 = new Solution4();
 		System.out.println("----- 1 -----");
 		System.out.println(solution1.numSquares(12));
 

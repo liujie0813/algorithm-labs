@@ -1,4 +1,4 @@
-## leetcode
+# leetcode
 
 重点：
 - program：纯编程类
@@ -32,7 +32,7 @@
 - 贪心
 
 
-## 数组
+# 数组
 
 **二分查找**
 
@@ -52,7 +52,7 @@
 
 注意边界情况。
 
-## 字符串
+# 字符串
 
 **双指针法**
 
@@ -62,7 +62,7 @@
 
 **KMP**
 
-## 回溯
+# 回溯
 
 回溯的本质是穷举。可能有剪枝。
 
@@ -94,7 +94,7 @@ void backtracking(参数) {
 }
 ```
 
-## 贪心
+# 贪心
 
 贪心的本质是选择每个阶段的最优解，从而达到全局最优。
 
@@ -111,9 +111,9 @@ void backtracking(参数) {
     - 区间问题一般都要排序（扫描线）；再考虑覆盖、去重等；
   - 53、134、968
 
-## DP
+# DP
 
-### 理论基础
+## 理论基础
 
 贪心是局部选取最优解；动态规划是每个状态由前一个状态推导出来的。
 
@@ -126,13 +126,13 @@ void backtracking(参数) {
 
 如何 debug？把 dp 数组打印出来，看是否是按照自己的思路推导的。
 
-### 基础题目
+## 基础题目
 
 - 斐波那契：509、70、746
 - 整数拆分：343
 - 不同的二分搜索树：96
 
-### 背包问题
+## 背包问题
 
 背包问题：
 - 背包：最大容量 v
@@ -146,7 +146,7 @@ void backtracking(参数) {
 - 完全背包：每个物品有无数个
 - 多重背包：不同的物品数量不同
 
-#### 01 背包
+### 01 背包
 
 **普通解法**
 
@@ -169,6 +169,7 @@ public static int maxValue(int capacity, int[] weight, int[] value) {
     for (int j = weight[0]; j <= capacity; j++) {
         dp[0][j] = value[0];
     }
+    // 二维 dp 数组的两个 for 循环的先后顺序是可以颠倒的
     // 遍历物品
     for (int i = 1; i < n; i++) {
         // 遍历背包容量
@@ -211,6 +212,7 @@ dp[j] 由 dp[j - weight[i]] 推导而来：
 public static int maxValue1(int capacity, int[] weight, int[] value) {
     int n = weight.length;
     int[] dp = new int[capacity + 1];
+    // 一维 dp 数组的两个 for 循环一定是先遍历物品，再遍历容量
     // 遍历物品
     for (int i = 0; i < n; i++) {
         // 需要倒序遍历
@@ -222,18 +224,148 @@ public static int maxValue1(int capacity, int[] weight, int[] value) {
 }
 ```
 
-**完全背包**
+**应用**
 
+- 01 背包：给定背包容量，装满背包的最大价值是多少
+- 416 分割等和子集：给定背包容量，能不能刚好装满背包
+- 1049 最后一块石头的重量 II：给定背包，尽可能装，最多能装多少
+- 494 目标和：给定背包容量，装满背包有多少种方案
+- 474 一和零：给定背包容量，装满背包最多有多少个物品
+  - 仍是 01 背包问题，只不过物品重量有两个维度；多重背包是每个物品，数量不同的情况；
 
+### 完全背包
 
-**多重背包**
+完全背包与 01 背包唯一不同的地方就在于：每件物品有无限个。
 
-### 路径问题
+**二维 dp 数组解法**
+
+状态转移方程： dp[i][j] = Math.max(dp[i - 1][j], dp[i - 1][j - k * weight[i]] + k * value[i]), 0 < k * weight[i] <= j
+
+```java
+public static int maxValue(int capacity, int[] weight, int[] value) {
+    int n = weight.length;
+    int[][] dp = new int[n + 1][capacity + 1];
+    // 第一件物品
+    for (int j = 0; j <= capacity; j++) {
+    	// 只要一件物品，容量允许的情况下，能装多少装多少
+        dp[0][j] = j / weight[0] * value[0];
+    }
+
+    // 先遍历物品
+    for (int i = 1; i < n; i++) {
+    	// 再遍历容量
+        for (int j = 0; j <= capacity; j++) {
+            // 第 i 件物品，能装多少
+            int tmp = 0;
+            for (int k = 1; k * weight[i] <= j; k++) {
+                tmp = Math.max(tmp, dp[i - 1][j - k * weight[i]] + k * value[i]);
+            }
+            dp[i][j] = Math.max(dp[i - 1][j], tmp);
+        }
+    }
+    return dp[n - 1][capacity];
+}
+```
+
+**一维空间优化**
+
+二维 dp 数组的 dp[i][j]，依赖于 i-1 行的 dp[i-1][j]、dp[i-1][j - weight[i]]、dp[i-1][j - 2*weight[i]] 等多个值。
+
+在改为一维 dp 数组后，其状态方程为：dp[j] = Math.max(dp[j], dp[j - weight[i]] + value[i])
+
+可以理解为：
+- dp[j] 对应 dp[i-1][j]
+- dp[j-weight[i]] 对应了多个 dp[i-1][j - k\*weight[i]]，由于第 i 行的 dp[j-weight[i]] 已经由第 i-j 行的 dp[i-1][j-2\*weight[i]]、dp[i-1][j-3\*weight[i]] 等计算出来了，所以不用再一一与前面的 dp[j-k*weight[i]] 进行比较。
+
+```java
+public static int maxValue1(int capacity, int[] weight, int[] value) {
+    int n = weight.length;
+    int[] dp = new int[capacity + 1];
+    // 遍历物品
+    for (int i = 0; i < n; i++) {
+        for (int j = weight[i]; j <= capacity; j++) {
+            dp[j] = Math.max(dp[j], dp[j - weight[i]] + value[i]);
+        }
+    }
+    return dp[capacity];
+}
+```
+
+对于完全背包，一维 dp 数组的两个 for 循环先后顺序是无所谓的。因为 dp[j] 是依赖 dp[j] 及之前的元素的，而背包容量是从小到大遍历，dp[j] 及之前的元素已经都经过计算了。
+
+**总结**
+
+01 背包和完全背包的一维空间优化解法中，唯一的不同是容量维度 遍历方向从 [从大到小] 改为 [从小到大]。
+
+本质上是因为两者在进行状态转移时，依赖的元素不同：
+- 01 背包：依赖的是上一行正上方的元素、上一行左边的元素
+  - 二维：依赖上一行左边的元素；一维：依赖当前行左边的元素）
+- 完全背包：依赖的是上一行正上方的元素、当前行左边的元素
+  - 二维：依赖上一行左边的多个元素；一维：依赖当前行左边的上一个元素（上一个元素也是依赖当前行的上上一个元素，所以仅取上一个就行）
+
+### 多重背包
+
+### 另一种角度的总结
+
+常见的背包问题有三类：
+- 组合排列问题：
+  - 377、组合总和 IV
+  - 494、目标和
+  - 518、零钱兑换 II
+- true/false 问题：
+  - 139、单词拆分
+  - 416、分割等和子集
+- 最大/最小问题：
+  - 322、一和零
+  - 474、零钱兑换
+
+判断背包问题逻辑：
+- 分析是否是背包问题
+- 是以上三种背包问题中的哪一种
+- 是 01 背包问题还是完全背包问题，也就是题目中的物品是否可以重复使用
+- 如果是组合问题，是否需要考虑元素顺序，也就是组合还是排列
+
+转移公式：
+- 组合排列问题：dp[j] += dp[j - weight[i]]
+- true、false 问题：dp[j] = dp[j] or dp[j - weight[i]]
+- 最大、最小问题：dp[j] = max/min(dp[j], dp[j - weight[i]] + value[i])
+
+遍历顺序技巧：
+- 01 背包，也就是元素不可重复使用：
+
+```java
+for (int i = 0; i < weight.length; i++) {
+    for (int j = target; j >= weight[i]; j--) {
+    }
+}
+```
+
+- 完全背包，也就是元素可以重复使用（包括组合问题）
+
+```java
+for (int i = 0; i < weight.length; i++) {
+    for (int j = weight[i]; j <= target; j++) {
+    }
+}
+```
+
+- 排列问题：
+
+```java
+for (int i = 0; i <= target; i++) {
+    for (int j = 0; j < weight.length; j++) {
+    	if (i >= weight[j]) {
+        }
+    }
+}
+```
+
+## 路径问题
 
 - 不同路径：62、63
 
-### 股票问题
+## 股票问题
 
-### 子序列问题
+## 子序列问题
 
-### 打家劫舍
+## 打家劫舍

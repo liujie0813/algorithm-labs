@@ -1,4 +1,4 @@
-package com.timberliu.algorithm.leetcode.dp.bag.no0279_2_perfectSquares;
+package com.timberliu.algorithm.leetcode.dp.bag.bagComplete.no0279_2_perfectSquares;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,15 +12,17 @@ import java.util.List;
  *
  *  状态转移方程：f[i][j] = min(f[i - 1][j - k*t] + k), 0 <= k*t <= j
  *
- *  时间复杂度：有 O(n * √n) 个状态，每个状态遍历 n 次，整体复杂度为 O(n^2 * √n)
- *  空间复杂度：O(n * √n)
+ *  一维优化  f[j] = min(f[j], f[j - t] + 1)
+ *
+ *  时间复杂度：O(n * √n)
+ *  空间复杂度：O(n)
  *
  * @author Timber
  * @date 2021/10/14
  */
-public class Solution1 {
+public class Solution3 {
 
-	int INF = -1;
+	int INF = Integer.MAX_VALUE;
 
 	public int numSquares(int n) {
 		List<Integer> list = new ArrayList<>();
@@ -31,41 +33,30 @@ public class Solution1 {
 		}
 
 		int len = list.size();
-		int[][] dp = new int[len][n + 1];
-		// 第一个数
-		for (int j = 0; j <= n; j++) {
-			Integer t = list.get(0);
-			int k = j / t;
-			// 只有容量为 第一个数的 整数倍 时才能凑出
-			if (k * t == j) {
-				dp[0][j] = k;
-			} else {
-				dp[0][j] = INF;
-			}
+		int[] dp = new int[n + 1];
+		// 0 个数
+		for (int j = 1; j <= n; j++) {
+			dp[j] = INF;
 		}
 
-		// 其他数
-		for (int i = 1; i < len; i++) {
-			Integer t = list.get(i);
-			for (int j = 0; j <= n; j++) {
+		// 1个及以上
+		for (int i = 1; i <= len; i++) {
+			Integer t = list.get(i - 1);
+			for (int j = t; j <= n; j++) {
 				// 不选第 i 个数
-				dp[i][j] = dp[i - 1][j];
-				// 选第 i 个数，选 k 次
-				for (int k = 1; k * t <= j; k++) {
-					// 能够选 k 个 t 的前提是：j - k * t 也能够被凑出
-					if (dp[i - 1][j - k * t] != INF) {
-						dp[i][j] = Math.min(dp[i][j], dp[i - 1][j - k * t] + k);
-					}
+//				dp[j] = dp[j];
+				// 选第 i 个数
+				if (dp[j - t] != INF) {
+					dp[j] = Math.min(dp[j], dp[j - t] + 1);
 				}
 			}
 		}
-
-		return dp[len - 1][n];
+		return dp[n];
 	}
 
 	public static void main(String[] args) {
 		System.out.println("----- https://leetcode-cn.com/problems/perfect-squares/ -----");
-		Solution1 solution1 = new Solution1();
+		Solution3 solution1 = new Solution3();
 		System.out.println("----- 1 -----");
 		System.out.println(solution1.numSquares(12));
 

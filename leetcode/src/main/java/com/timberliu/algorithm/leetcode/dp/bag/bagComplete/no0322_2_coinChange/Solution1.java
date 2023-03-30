@@ -1,4 +1,4 @@
-package com.timberliu.algorithm.leetcode.dp.bag.no0322_2_coinChange;
+package com.timberliu.algorithm.leetcode.dp.bag.bagComplete.no0322_2_coinChange;
 
 /**
  * 322. 零钱兑换
@@ -7,29 +7,33 @@ package com.timberliu.algorithm.leetcode.dp.bag.no0322_2_coinChange;
  *
  *  状态转移方程：f[i][j] = min(f[i - 1][j - k*t] + k), 0 <= k*t <= j
  *
- *  一维优化 f[j] = min(f[j], f[j - coin] + 1)
- *
  * Created by liujie on 2021/7/29
  */
 
-public class Solution2 {
+public class Solution1 {
 
-    static int INF = 0x3f3f3f3f;
+    static int INF = Integer.MAX_VALUE;
 
     public static int coinChange(int[] coins, int amount) {
         int n = coins.length;
-        int[] dp = new int[amount + 1];
+        int[][] dp = new int[n + 1][amount + 1];
         for (int i = 1; i <= amount; i++) {
-            dp[i] = INF;
+            dp[0][i] = INF;
         }
 
         for (int i = 1; i <= n; i++) {
             int val = coins[i - 1];
-            for (int j = val; j <= amount; j++) {
-                 dp[j] = Math.min(dp[j], dp[j - val] + 1);
+            for (int j = 0; j <= amount; j++) {
+                dp[i][j] = dp[i - 1][j];
+
+                for (int k = 1; k * val <= j; k++) {
+                     if (dp[i - 1][j - k * val] != INF) {
+                         dp[i][j] = Math.min(dp[i][j], dp[i - 1][j - k * val] + k);
+                     }
+                }
             }
         }
-        return dp[amount] == INF ? -1 : dp[amount];
+        return dp[n][amount] == INF ? -1 : dp[n][amount];
     }
 
     public static void main(String[] args) {
