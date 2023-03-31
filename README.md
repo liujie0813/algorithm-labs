@@ -325,10 +325,28 @@ public static int maxValue1(int capacity, int[] weight, int[] value) {
 - 是 01 背包问题还是完全背包问题，也就是题目中的物品是否可以重复使用
 - 如果是组合问题，是否需要考虑元素顺序，也就是组合还是排列
 
+状态定义：
+- 最大/最小、true/false 问题
+  - dp[i][j]：考虑前 i 个物品，放到容量为 j 的背包，最大价值/是否能装满；
+- 组合问题
+  - dp[i][j]：考虑前 i 个数字，凑成总和为 j 的组合个数（第 i 个数字是否选择，遍历选几次k）
+- 排列问题：
+  - dp[i][j]：考虑排列长度为 i，凑成总和为 j 的排列个数（最后一个数字可以任意选择，遍历nums数组）
+
 转移公式：
-- 组合排列问题：dp[j] += dp[j - weight[i]]
 - true、false 问题：dp[j] = dp[j] or dp[j - weight[i]]
 - 最大、最小问题：dp[j] = max/min(dp[j], dp[j - weight[i]] + value[i])
+- 组合排列问题：dp[j] += dp[j - weight[i]]
+  - 二维-组合：
+```
+dp[i][j] = ∑ dp[i - 1][j - k * val], j >= k * val，val = nums[i]
+           k从1到j/val
+```
+  - 二维-排列：
+```
+dp[i][j] = ∑ dp[i - 1][j - nums[i]], j >= nums[i]
+           i从0到n-1
+```
 
 遍历顺序技巧：
 - 01 背包，也就是元素不可重复使用：
