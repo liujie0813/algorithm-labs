@@ -305,6 +305,27 @@ public static int maxValue1(int capacity, int[] weight, int[] value) {
 
 ### 多重背包
 
+多重背包与 01 背包的区别就是多重背包中，每件物品的数量不同，有 Mi 件。
+
+```java
+public static int maxValue(int[] weight, int[] value, int[] limit, int capacity) {
+    int[] dp = new int[capacity + 1];
+    for (int i = 0; i < weight.length; i++) {
+        for (int j = capacity; j >= weight[i]; j--) {
+            // 相比于 01 背包，加一个遍历：物品数量限制
+            for (int k = 0; k <= limit[i] && k * weight[i] <= j; k++) {
+                dp[j] = Math.max(dp[j], dp[j - k * weight[i]] + k * value[i]);
+            }
+        }
+    }
+    return dp[capacity];
+}
+```
+
+一维空间优化：
+- 三种背包的一维空间优化中，只有完全背包的容量维度是从大到小的；其他两种背包的容量维度都是从小到大的；
+- 只有完全背包同时能降低算法的时间复杂度；而其他两种背包只是做单纯的数组滚动操作；
+
 ### 另一种角度的总结
 
 常见的背包问题有三类：

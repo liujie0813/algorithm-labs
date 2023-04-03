@@ -1,4 +1,4 @@
-package com.timberliu.algorithm.leetcode.tree.no0337_2_houseRobber3;
+package com.timberliu.algorithm.leetcode.dp.linear.no0198_2_houseRobber.related.no0337_2_houseRobberIII;
 
 import com.timberliu.algorithm.leetcode.tree.TreeNode;
 
@@ -16,10 +16,13 @@ import java.util.Arrays;
  *   时间复杂度：O(n)，后序遍历
  *   空间复杂度：O(n)，栈空间
  *
+ *   在树形 DP 中，递归返回的是数组
+ *   每次递归中有几种情况，数组返回几个值。下次递归时这几种情况都要再次考虑
+ *
  * Created by liujie on 2021/6/28
  */
 
-public class Solution2 {
+public class Solution1 {
 
     public static int rob(TreeNode root) {
         int[] res = doRob(root);
