@@ -39,4 +39,12 @@ public class PrintUtils {
 		System.out.println();
 	}
 
+	public static void printIntArray(int[] arr) {
+		System.out.print("[");
+		for (int val : arr) {
+			System.out.print(val + ", ");
+		}
+		System.out.print("]\n");
+	}
+
 }
