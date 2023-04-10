@@ -1,4 +1,4 @@
-package com.timberliu.algorithm.leetcode.dp.linear.no0115_3_distinctSubSequences;
+package com.timberliu.algorithm.leetcode.dp.sequence.string_edit_del_replace.no0115_3_distinctSubSequences;
 
 /**
  * 115. 不同的子序列
@@ -9,9 +9,16 @@ package com.timberliu.algorithm.leetcode.dp.linear.no0115_3_distinctSubSequences
  *   两类决策：
  *     1. s[i] 不参与匹配：让 s 中前 i-1 个字符匹配 t 中前 j 个字符
  *          f[i][j] = f[i - 1][j]
- *     2. s[i] 参与匹配：让 s 中前 i-1 个字符匹配 t 中前 j-1 个字符，同时满足 s[i] = s[j]
- *          f[i][j] = f[i - 1][j - 1]
+ *     2. s[i] 参与匹配：让 s 中前 i 个字符匹配 t 中前 j 个字符
+ *        如果 s[i] = t[j]，f[i][j] = f[i - 1][j - 1] + f[i - 1][j]
+ *        如果 s[i] != t[j]，f[i][j] = f[i - 1][j]
  *
+ *   推导：
+ *     1. 如果 s[i-1] = t[j-1]，有两部分：
+ *       用 s[i-1] 来匹配，匹配个数为 dp[i-1][j-1]
+ *       不用 s[i-1] 来匹配，匹配个数为 dp[i-1][j]
+ *     2. 如果 s[i-1] != t[j-1]
+ *       肯定不能用 s[i-1] 匹配，匹配个数为 dp[i-1][j]
  *
  * @author Timber
  * @date 2021/10/18
@@ -40,6 +47,25 @@ public class Solution1 {
 		return dp[n][m];
 	}
 
+	public int numDistinct1(String ss, String tt) {
+		int n = ss.length(), m = tt.length();
+		int[][] dp = new int[n + 1][m + 1];
+		for (int i = 0; i <= n; i++) {
+			dp[i][0] = 1;
+		}
+
+		for (int i = 1; i <= n; i++) {
+			for (int j = 1; j <= m; j++) {
+				if (ss.charAt(i - 1) == tt.charAt(j - 1)) {
+					dp[i][j] = dp[i - 1][j - 1] + dp[i - 1][j];
+				} else {
+					dp[i][j] = dp[i - 1][j];
+				}
+			}
+		}
+		return dp[n][m];
+	}
+
 	public static void main(String[] args) {
 		System.out.println("----- https://leetcode-cn.com/problems/distinct-subsequences/ -----");
 		Solution1 solution1 = new Solution1();
@@ -47,7 +73,7 @@ public class Solution1 {
 		System.out.println(solution1.numDistinct("rabbbit", "rabbit"));
 
 		System.out.println("----- 2 -----");
-		System.out.println(solution1.numDistinct("babgbag", "bag"));
+		System.out.println(solution1.numDistinct1("babgbag", "bag"));
 
 	}
 

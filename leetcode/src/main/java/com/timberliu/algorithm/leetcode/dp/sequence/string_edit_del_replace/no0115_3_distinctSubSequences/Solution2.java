@@ -1,4 +1,4 @@
-package com.timberliu.algorithm.leetcode.dp.linear.no0115_3_distinctSubSequences;
+package com.timberliu.algorithm.leetcode.dp.sequence.string_edit_del_replace.no0115_3_distinctSubSequences;
 
 /**
  * 115. 不同的子序列

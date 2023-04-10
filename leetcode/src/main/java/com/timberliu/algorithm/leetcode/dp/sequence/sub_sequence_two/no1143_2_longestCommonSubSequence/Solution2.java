@@ -1,15 +1,19 @@
-package com.timberliu.algorithm.leetcode.dp.sequence.no1143_2_longestCommonSubSequence;
+package com.timberliu.algorithm.leetcode.dp.sequence.sub_sequence_two.no1143_2_longestCommonSubSequence;
 
 /**
  * 1143. 最长公共子序列
  *
- *  状态定义：f[i][j] 考虑 text1 中前 i-1 个字符、text2 中前 j-1 个字符，公共子序列的最大长度
+ *  状态定义：f[i][j] 考虑 text1 中前 i 个字符（以下标 i-1 结尾）、text2 中前 j 个字符（以下标 j-1 结尾），公共子序列的最大长度
  *
  *  状态转移方程：
  *    1. text1[i-1] == text[j-1]
  *       f[i][j] = f[i - 1][j - 1] + 1
  *    2. text1[i-1] != text[j-1]
  *       f[i][j] = max(f[i - 1][j],  f[i][j - 1])
+ *
+ *  与 718 不用的是，这里要求不是连续的了
+ *   如果连续，text1[i-1] != text[j-1]，长度直接赋为 0
+ *   如果不连续，text1[i-1] != text[j-1]，还需要看前面的序列
  *
  * @author Timber
  * @date 2021/10/25

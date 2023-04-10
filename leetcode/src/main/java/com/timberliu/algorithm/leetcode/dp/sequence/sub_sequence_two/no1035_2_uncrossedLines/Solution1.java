@@ -1,4 +1,4 @@
-package com.timberliu.algorithm.leetcode.dp.sequence.no1035_2_uncrossedLines;
+package com.timberliu.algorithm.leetcode.dp.sequence.sub_sequence_two.no1035_2_uncrossedLines;
 
 /**
  * 1035. 不相交的线

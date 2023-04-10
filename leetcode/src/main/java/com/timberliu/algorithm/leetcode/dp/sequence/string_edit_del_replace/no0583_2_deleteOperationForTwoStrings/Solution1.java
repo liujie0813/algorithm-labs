@@ -1,4 +1,4 @@
-package com.timberliu.algorithm.leetcode.dp.sequence.no0583_2_deleteOperationForTwoStrings;
+package com.timberliu.algorithm.leetcode.dp.sequence.string_edit_del_replace.no0583_2_deleteOperationForTwoStrings;
 
 /**
  * 583. 两个字符串的删除操作
@@ -38,10 +38,29 @@ public class Solution1 {
 		return n + m - 2 * max;
 	}
 
+	public int minDistance1(String word1, String word2) {
+		int n = word1.length(), m = word2.length();
+		int[][] dp = new int[n + 1][m + 1];
+		for (int i = 1; i <= n; i++) {
+			for (int j = 1; j <= m; j++) {
+				if (word1.charAt(i - 1) == word2.charAt(j - 1)) {
+					dp[i][j] = dp[i - 1][j - 1] + 1;
+				} else {
+					dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
+				}
+			}
+		}
+
+		int max = dp[n][m];
+		return n + m - 2 * max;
+	}
+
 	public static void main(String[] args) {
 		System.out.println("----- https://leetcode-cn.com/problems/delete-operation-for-two-strings/ -----");
 		System.out.println("----- 1 -----");
-
+		Solution1 solution1 = new Solution1();
+		int res = solution1.minDistance1("sea", "eat");
+		System.out.println(res);
 
 	}
 

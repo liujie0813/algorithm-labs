@@ -1,4 +1,4 @@
-package com.timberliu.algorithm.leetcode.dp.sequence.no1143_2_longestCommonSubSequence;
+package com.timberliu.algorithm.leetcode.dp.sequence.sub_sequence_two.no1143_2_longestCommonSubSequence;
 
 /**
  * 1143. 最长公共子序列
