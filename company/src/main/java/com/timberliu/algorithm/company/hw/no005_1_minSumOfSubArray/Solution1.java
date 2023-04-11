@@ -1,10 +1,7 @@
 package com.timberliu.algorithm.company.hw.no005_1_minSumOfSubArray;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.Scanner;
-import java.util.function.ToIntFunction;
 
 /**
  * 5. 等和子数组最小和
@@ -13,8 +10,16 @@ import java.util.function.ToIntFunction;
  *
  *   搜索+剪枝
  *
+ *   对于 n 个元素，依次判断是否可以拆分为 k 个桶（1 <= k <= n）
  *
+ *   回溯：
+ *    1. 将第 i 个球，尝试放入每一个桶中
+ *         如果放入 i 后当前桶不超过 sum/k=target，则继续尝试去放下一个球到每个桶中
+ *    2. 终止条件：如果所有球都放入桶里了，则表示满足条件 target 条件
  *
+ *   回溯剪枝：
+ *    1. 纵向：某个桶元素和超过 target 则跳过
+ *    2. 横向：当前桶与上一个桶的元素和相等，则跳过
  *
  * @author Timber
  * @date 2023/4/6
