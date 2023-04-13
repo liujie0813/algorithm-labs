@@ -1,6 +1,7 @@
 package com.timberliu.algorithm.basic.api;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * @author liujie
@@ -43,6 +44,17 @@ public class Api {
 		List<Integer> subList1 = map1.computeIfAbsent(123, (val) -> new ArrayList<>());
 		subList1.add(2);
 
+		Map<String, Integer> map = new HashMap<>();
+		map.put("a", 1);
+		map.put("b", 3);
+		map.put("c", 7);
+		map.put("d", 3);
+		List<Map.Entry<String, Integer>> list = map.entrySet().stream().sorted(Comparator.comparing(a -> a, (a, b) -> {
+			if (a.getValue().equals(b.getValue())) {
+				return b.getKey().compareTo(a.getKey());
+			}
+			return b.getValue().compareTo(a.getValue());
+		})).collect(Collectors.toList());
 
 	}
 

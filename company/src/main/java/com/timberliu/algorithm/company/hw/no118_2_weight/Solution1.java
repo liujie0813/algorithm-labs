@@ -1,4 +1,4 @@
-package com.timberliu.algorithm.company.hw.no0118_2_weight;
+package com.timberliu.algorithm.company.hw.no118_2_weight;
 
 import java.util.*;
 
@@ -19,6 +19,7 @@ public class Solution1 {
 
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
+		// 多组测试数据
 		while (scanner.hasNextInt()) {
 			int n = scanner.nextInt();
 			int[] weight = new int[n];
