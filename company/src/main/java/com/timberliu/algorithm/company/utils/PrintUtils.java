@@ -19,6 +19,16 @@ public class PrintUtils {
 		System.out.println();
 	}
 
+	public static void printListListIntegerV2(List<List<Integer>> list) {
+		for (List<Integer> list1 : list) {
+			for (Integer val1 : list1) {
+				System.out.print(val1 + " ");
+			}
+			System.out.println();
+		}
+		System.out.println();
+	}
+
 	public static void printListListString(List<List<String>> list) {
 		for (List<String> sub : list) {
 			for (String str : sub) {
@@ -42,6 +52,14 @@ public class PrintUtils {
 	public static void printIntArray(int[] arr) {
 		System.out.print("[");
 		for (int val : arr) {
+			System.out.print(val + ", ");
+		}
+		System.out.print("]\n");
+	}
+
+	public static void printBooleanArray(boolean[] arr) {
+		System.out.print("[");
+		for (boolean val : arr) {
 			System.out.print(val + ", ");
 		}
 		System.out.print("]\n");
