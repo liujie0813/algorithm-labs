@@ -10,6 +10,13 @@ import java.util.List;
 
 public class PrintUtils {
 
+	public static void printListInteger(List<Integer> list) {
+		for (Integer val : list) {
+			System.out.print(val + " ");
+		}
+		System.out.println();
+	}
+
 	public static void printListListInteger(List<List<Integer>> list) {
 		for (List<Integer> list1 : list) {
 			for (Integer val1 : list1) {
