@@ -7,6 +7,8 @@ import java.util.Set;
 /**
  * 101. Linux 发行版数量
  *
+ *  n*n矩阵，求最大的连通分量的分量数
+ *
  *
  * @author liujie
  * @date 2023/4/14

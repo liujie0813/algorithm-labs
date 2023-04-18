@@ -6,7 +6,7 @@ import java.util.Scanner;
 /**
  * 109. 实力差距最小总和
  *
- *
+ * 队伍两两匹配，求最小的队伍实力差距总和
  *
  * @author liujie
  * @date 2023/4/13

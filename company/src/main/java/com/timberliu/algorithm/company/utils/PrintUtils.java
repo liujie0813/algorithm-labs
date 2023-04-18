@@ -1,5 +1,6 @@
 package com.timberliu.algorithm.company.utils;
 
+import java.util.Deque;
 import java.util.List;
 
 /**
@@ -38,6 +39,13 @@ public class PrintUtils {
 		}
 	}
 
+	public static void printListString(List<String> list) {
+		for (String str : list) {
+			System.out.print(str + " ");
+		}
+		System.out.println();
+	}
+
 	public static void printIntArray(int[][] arr) {
 		for (int[] a : arr) {
 			System.out.print("[");
@@ -60,6 +68,14 @@ public class PrintUtils {
 	public static void printBooleanArray(boolean[] arr) {
 		System.out.print("[");
 		for (boolean val : arr) {
+			System.out.print(val + ", ");
+		}
+		System.out.print("]\n");
+	}
+
+	public static void printIntegerDeque(Deque<Integer> queue) {
+		System.out.print("[");
+		for (Integer val : queue) {
 			System.out.print(val + ", ");
 		}
 		System.out.print("]\n");
