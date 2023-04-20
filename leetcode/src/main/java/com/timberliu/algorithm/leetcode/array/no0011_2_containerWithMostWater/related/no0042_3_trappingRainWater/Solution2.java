@@ -40,6 +40,22 @@ public class Solution2 {
         return sum;
     }
 
+    public static int trap1(int[] height) {
+        int[] leftMax = new int[height.length];
+        for (int i = 1; i < height.length; i++) {
+            leftMax[i] = Math.max(leftMax[i - 1], height[i - 1]);
+        }
+        int[] rightMax = new int[height.length];
+        for (int i = height.length - 2; i >= 0; i--) {
+            rightMax[i] = Math.max(rightMax[i + 1], height[i + 1]);
+        }
+        int sum = 0;
+        for (int i = 1; i < height.length - 1; i++) {
+            sum += Math.max(0, Math.min(leftMax[i], rightMax[i]) - height[i]);
+        }
+        return sum;
+    }
+
     public static void main(String[] args) {
         System.out.println("----- https://leetcode-cn.com/problems/trapping-rain-water/ -----");
         System.out.println("----- 1 -----");
