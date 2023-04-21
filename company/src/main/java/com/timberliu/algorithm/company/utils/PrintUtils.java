@@ -17,6 +17,17 @@ public class PrintUtils {
 		System.out.println();
 	}
 
+	public static void printListIntegerV2(List<Integer> list) {
+		System.out.print("[");
+		for (int i = 0; i < list.size(); i++) {
+			System.out.print(list.get(i));
+			if (i != list.size() - 1) {
+				System.out.print(",");
+			}
+		}
+		System.out.println("]");
+	}
+
 	public static void printListListInteger(List<List<Integer>> list) {
 		for (List<Integer> list1 : list) {
 			for (Integer val1 : list1) {
@@ -62,6 +73,24 @@ public class PrintUtils {
 			System.out.print("]\n");
 		}
 		System.out.println();
+	}
+
+	public static void printIntArrayV2(int[][] arr) {
+		System.out.print("[");
+		for (int i = 0; i < arr.length; i++) {
+			System.out.print("[");
+			for (int j = 0; j < arr[i].length; j++) {
+				System.out.print(arr[i][j]);
+				if (j != arr[i].length - 1) {
+					System.out.print(", ");
+				}
+			}
+			System.out.print("]");
+			if (i != arr.length - 1) {
+				System.out.print(", ");
+			}
+		}
+		System.out.println("]");
 	}
 
 	public static void printIntArray(int[] arr) {
