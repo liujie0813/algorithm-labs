@@ -36,7 +36,7 @@ public class Solution1 {
                 }
             }
             // 校验 是否包含子串
-            while (valid == t.length()) {
+            while (valid == need.size()) {
                 // 如果小于 minLen，更新最小子串
                 if (r - l + 1 < minLen) {
                     minLen = r - l + 1;

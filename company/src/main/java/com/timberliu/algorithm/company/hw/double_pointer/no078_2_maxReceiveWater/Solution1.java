@@ -1,4 +1,4 @@
-package com.timberliu.algorithm.company.utils.no078_2_maxReceiveWater;
+package com.timberliu.algorithm.company.hw.double_pointer.no078_2_maxReceiveWater;
 
 import java.util.HashSet;
 import java.util.Scanner;

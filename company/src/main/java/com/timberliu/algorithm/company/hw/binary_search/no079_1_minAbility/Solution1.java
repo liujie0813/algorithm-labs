@@ -1,4 +1,4 @@
-package com.timberliu.algorithm.company.utils.no079_1_minAbility;
+package com.timberliu.algorithm.company.hw.binary_search.no079_1_minAbility;
 
 import java.util.Scanner;
 
