@@ -48,6 +48,24 @@ public class PrintUtils {
 		System.out.println();
 	}
 
+	public static void printListListIntegerV3(List<List<Integer>> list) {
+		System.out.print("[");
+		for (int i = 0; i < list.size(); i++) {
+			System.out.print("[");
+			for (int j = 0; j < list.get(i).size(); j++) {
+				System.out.print(list.get(i).get(j));
+				if (j != list.get(i).size() - 1) {
+					System.out.print(", ");
+				}
+			}
+			System.out.print("]");
+			if (i != list.size() - 1) {
+				System.out.print(", ");
+			}
+		}
+		System.out.println("]");
+	}
+
 	public static void printListListString(List<List<String>> list) {
 		for (List<String> sub : list) {
 			for (String str : sub) {
@@ -95,8 +113,11 @@ public class PrintUtils {
 
 	public static void printIntArray(int[] arr) {
 		System.out.print("[");
-		for (int val : arr) {
-			System.out.print(val + ", ");
+		for (int i = 0; i < arr.length; i++) {
+			System.out.print(arr[i]);
+			if (i < arr.length - 1) {
+				System.out.print(", ");
+			}
 		}
 		System.out.print("]\n");
 	}
