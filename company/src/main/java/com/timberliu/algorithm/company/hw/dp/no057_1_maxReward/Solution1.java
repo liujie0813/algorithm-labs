@@ -1,4 +1,4 @@
-package com.timberliu.algorithm.company.hw.dp.no057_maxReward;
+package com.timberliu.algorithm.company.hw.dp.no057_1_maxReward;
 
 import java.util.Scanner;
 

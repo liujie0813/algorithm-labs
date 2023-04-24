@@ -122,6 +122,12 @@ public class PrintUtils {
 		System.out.print("]\n");
 	}
 
+	public static void printIntArrayV2(int[] arr) {
+		for (int j : arr) {
+			System.out.print(j + " ");
+		}
+	}
+
 	public static void printBooleanArray(boolean[] arr) {
 		System.out.print("[");
 		for (boolean val : arr) {
