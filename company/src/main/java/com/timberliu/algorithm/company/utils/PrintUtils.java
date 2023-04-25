@@ -28,6 +28,15 @@ public class PrintUtils {
 		System.out.println("]");
 	}
 
+	public static void printListIntegerV3(List<Integer> list) {
+		for (int i = 0; i < list.size(); i++) {
+			System.out.print(list.get(i));
+			if (i != list.size() - 1) {
+				System.out.print(",");
+			}
+		}
+	}
+
 	public static void printListListInteger(List<List<Integer>> list) {
 		for (List<Integer> list1 : list) {
 			for (Integer val1 : list1) {
