@@ -1,4 +1,4 @@
-package com.timberliu.algorithm.company.hw.prefix_sum.no082_maxFriendVal;
+package com.timberliu.algorithm.company.hw.prefix_sum.no082_1_maxFriendVal;
 
 import java.util.Scanner;
 

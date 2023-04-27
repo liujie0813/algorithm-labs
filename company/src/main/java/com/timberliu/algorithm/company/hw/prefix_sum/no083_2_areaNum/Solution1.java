@@ -1,4 +1,4 @@
-package com.timberliu.algorithm.company.hw.prefix_sum.no083_areaNum;
+package com.timberliu.algorithm.company.hw.prefix_sum.no083_2_areaNum;
 
 import java.util.Scanner;
 
