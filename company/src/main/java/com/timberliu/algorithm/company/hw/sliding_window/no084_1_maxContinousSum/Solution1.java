@@ -1,4 +1,4 @@
-package com.timberliu.algorithm.company.hw.sliding_window.no084_maxContinousSum;
+package com.timberliu.algorithm.company.hw.sliding_window.no084_1_maxContinousSum;
 
 import java.util.Scanner;
 

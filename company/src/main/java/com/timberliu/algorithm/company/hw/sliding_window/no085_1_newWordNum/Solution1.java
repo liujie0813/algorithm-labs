@@ -1,4 +1,4 @@
-package com.timberliu.algorithm.company.hw.sliding_window.no085_newWordNum;
+package com.timberliu.algorithm.company.hw.sliding_window.no085_1_newWordNum;
 
 import java.util.HashMap;
 import java.util.Map;
