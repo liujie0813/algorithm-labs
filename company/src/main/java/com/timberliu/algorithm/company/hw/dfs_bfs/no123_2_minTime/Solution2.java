@@ -1,4 +1,4 @@
-package com.timberliu.algorithm.company.hw.back_track.no123_2_minTime;
+package com.timberliu.algorithm.company.hw.dfs_bfs.no123_2_minTime;
 
 import java.util.*;
 
