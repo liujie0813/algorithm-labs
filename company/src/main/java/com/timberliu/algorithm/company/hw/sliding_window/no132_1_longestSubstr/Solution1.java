@@ -1,4 +1,4 @@
-package com.timberliu.algorithm.company.hw.sliding_window.no999_1_longestSubstr;
+package com.timberliu.algorithm.company.hw.sliding_window.no132_1_longestSubstr;
 
 import java.util.Arrays;
 import java.util.Scanner;
