@@ -1,4 +1,4 @@
-package com.timberliu.algorithm.company.hw.volume_a.dfs_bfs.no121_2_figurePerimeter;
+package com.timberliu.algorithm.company.hw.volume_a.logic.no121_2_figurePerimeter;
 
 import com.timberliu.algorithm.company.utils.PrintUtils;
 

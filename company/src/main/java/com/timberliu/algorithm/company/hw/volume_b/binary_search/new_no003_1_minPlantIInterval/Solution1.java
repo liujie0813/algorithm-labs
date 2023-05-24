@@ -1,4 +1,4 @@
-package com.timberliu.algorithm.company.hw.volume_b.binary_search.no003_1_minPlantIInterval;
+package com.timberliu.algorithm.company.hw.volume_b.binary_search.new_no003_1_minPlantIInterval;
 
 import java.util.Arrays;
 import java.util.Scanner;
