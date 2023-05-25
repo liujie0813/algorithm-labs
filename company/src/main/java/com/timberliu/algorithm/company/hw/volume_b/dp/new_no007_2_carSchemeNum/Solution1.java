@@ -1,6 +1,4 @@
-package com.timberliu.algorithm.company.hw.volume_b.dp.new_no997_2_carSchemeNum;
-
-import com.timberliu.algorithm.company.utils.PrintUtils;
+package com.timberliu.algorithm.company.hw.volume_b.dp.new_no007_2_carSchemeNum;
 
 import java.util.Arrays;
 import java.util.Scanner;
