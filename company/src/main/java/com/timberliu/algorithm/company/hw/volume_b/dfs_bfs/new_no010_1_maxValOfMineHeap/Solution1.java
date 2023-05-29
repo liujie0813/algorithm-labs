@@ -1,7 +1,6 @@
 package com.timberliu.algorithm.company.hw.volume_b.dfs_bfs.new_no010_1_maxValOfMineHeap;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
