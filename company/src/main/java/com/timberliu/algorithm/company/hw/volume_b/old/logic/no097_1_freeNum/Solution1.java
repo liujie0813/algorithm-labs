@@ -1,4 +1,4 @@
-package com.timberliu.algorithm.company.hw.volume_b.old.no992_1_freeNum;
+package com.timberliu.algorithm.company.hw.volume_b.old.logic.no097_1_freeNum;
 
 import java.util.ArrayList;
 import java.util.Arrays;
