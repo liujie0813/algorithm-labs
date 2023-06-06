@@ -1,4 +1,4 @@
-package com.timberliu.algorithm.company.hw.volume_b.old.string.no009_incrementSequence;
+package com.timberliu.algorithm.company.hw.volume_b.old.string.no009_1_incrementSequence;
 
 import java.util.Scanner;
 
