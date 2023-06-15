@@ -1,4 +1,4 @@
-package com.timberliu.algorithm.company.hw.exercise.no01.no132_maxMatrixSum;
+package com.timberliu.algorithm.company.hw.exercise.no01.no132_2_maxMatrixSum;
 
 import java.util.Scanner;
 

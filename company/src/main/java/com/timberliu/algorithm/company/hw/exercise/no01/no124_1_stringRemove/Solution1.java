@@ -1,4 +1,4 @@
-package com.timberliu.algorithm.company.hw.exercise.no01.no124_stringRemove;
+package com.timberliu.algorithm.company.hw.exercise.no01.no124_1_stringRemove;
 
 import java.util.Deque;
 import java.util.LinkedList;

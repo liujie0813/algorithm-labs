@@ -1,4 +1,4 @@
-package com.timberliu.algorithm.company.hw.exercise.no01.no007_matchScore;
+package com.timberliu.algorithm.company.hw.exercise.no01.no007_1_matchScore;
 
 import java.util.*;
 import java.util.stream.Collectors;
