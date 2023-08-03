@@ -23,7 +23,7 @@ public class Solution2 {
 
 		Deque<Integer> stack = new LinkedList<>();
 		for (int i = 0; i < heights.length; i++) {
-			// 左边最近的小于 height[i] 的元素
+			// 右边最近的小于 height[i] 的元素
 			while (!stack.isEmpty() && heights[i] <= heights[stack.peek()]) {
 				right[stack.peek()] = i;
 				stack.pop();
