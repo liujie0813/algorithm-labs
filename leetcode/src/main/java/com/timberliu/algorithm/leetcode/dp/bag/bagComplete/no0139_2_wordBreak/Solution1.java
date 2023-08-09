@@ -1,4 +1,4 @@
-package com.timberliu.algorithm.leetcode.dp.linear.no0139_2_wordBreak;
+package com.timberliu.algorithm.leetcode.dp.bag.bagComplete.no0139_2_wordBreak;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -15,7 +15,7 @@ import java.util.Set;
  *
  *  dp[i]：考虑字符串前 i 个字符，是否可以利用字典中的单词拼出
  *
- *  推导：如果 s[j~i] 的子串在字典中存在，且 dp[j] 为 true，则 dp[i] 为 true
+ *  推导：如果 s[j~i] 的子串在字典中存在，且 dp[j-1] 为 true，则 dp[i] 为 true
  *
  *  dp[0] = true：空字符串，不用字典中的单词可以拼出
  *
