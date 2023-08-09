@@ -17,6 +17,7 @@ public class Solution3 {
 		if (candidates.length == 0) {
 			return res;
 		}
+		// 排序
 		Arrays.sort(candidates);
 		dfs(candidates, 0, target, new ArrayList<>(), res);
 		return res;
@@ -28,6 +29,7 @@ public class Solution3 {
 			return;
 		}
 		for (int i = begin; i < candidates.length; i++) {
+			// 剪枝：i 不满足，后面更大的肯定也不满足，直接跳出循环
 			if (target - candidates[i] < 0) {
 				break;
 			}
