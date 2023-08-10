@@ -15,9 +15,9 @@ package com.timberliu.algorithm.leetcode.dp.buysellstock.no0121_1_bestTimeToBuyA
  *      - 第 i 天买入股票，结果就是今天买入股票后，所得的最多现金 dp[i] = -prices[i]
  *    	dp[i][0] = max(dp[i - 1][0], -prices[i])
  *
- *    如果第 i-1 天不持有股票：
+ *    如果第 i 天不持有股票：
  *      - 第 i-1 天已经不持有股票，保持现状，结果就是昨天不持有股票所得的最多现金 dp[i] = dp[i - 1][1]
- *      - 第 i 天买入股票，结果就是今天卖出股票后，所得的最多现金 dp[i] = prices[i] + dp[i - 1][0]
+ *      - 第 i-1 天已经持有股票，结果就是今天卖出股票后，所得的最多现金 dp[i] = prices[i] + dp[i - 1][0]
  *      dp[i][1] = max(dp[i - 1][1], prices[i] + dp[i - 1][0])
  *
  *  初始化
