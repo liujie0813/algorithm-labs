@@ -6,6 +6,10 @@ import java.util.Map;
 /**
  * 5. 最长回文子串
  *
+ * dp[i][j]：区间 [i, j] 是否为回文子串
+ *
+ * dp[i][j] = dp[i+1][j-1] && s[i] == s[j]
+ *
  * @author liujie
  * @date 2022/2/24
  */
@@ -13,22 +17,21 @@ import java.util.Map;
 public class Solution1 {
 
 	public int lengthOfLongestSubstring(String s) {
-		// [start, end]
-		// <字符，该字符出现的最后位置>
-		Map<Character, Integer> marked = new HashMap<>();
-		int start = 0;
-		int maxLen = 0;
-		for (int end = 0; end < s.length(); end++) {
-			char ch = s.charAt(end);
-			// 如果字符出现过，则跳过
-			if (marked.containsKey(ch)) {
-				start = Math.max(start, marked.get(ch) + 1);
+		int n = s.length();
+		boolean[][] dp = new boolean[n][n];
+
+		int max = 0;
+		for (int i = n - 1; i >= 0; i--) {
+			for (int j = i; j < n; j++) {
+				if (s.charAt(i) == s.charAt(j)) {
+					if (i + 1 >= j || dp[i + 1][j - 1]) {
+						dp[i][j] = true;
+						max = Math.max(max, j - i + 1);
+					}
+				}
 			}
-			marked.put(ch, end);
-			// 更新最大长度
-			maxLen = Math.max(maxLen, end - start + 1);
 		}
-		return maxLen;
+		return max;
 	}
 
 	public static void main(String[] args) {

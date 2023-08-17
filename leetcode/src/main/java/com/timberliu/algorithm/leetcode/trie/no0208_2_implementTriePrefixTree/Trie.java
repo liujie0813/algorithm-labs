@@ -10,21 +10,24 @@ package com.timberliu.algorithm.leetcode.trie.no0208_2_implementTriePrefixTree;
 
 public class Trie {
 
-    private Trie[] children;
-    private boolean isEnd;
+    static class Node {
+        private final Node[] children = new Node[26];
+        private boolean isEnd;
+    }
+
+    private final Node root;
 
     public Trie() {
-        children = new Trie[26];
-        isEnd = false;
+        root = new Node();
     }
 
     public void insert(String word) {
-        Trie node = this;
+        Node node = root;
         for (int i = 0; i < word.length(); i++) {
             char c = word.charAt(i);
             int index = c - 'a';
             if (node.children[index] == null) {
-                node.children[index] = new Trie();
+                node.children[index] = new Node();
             }
             node = node.children[index];
         }
@@ -32,7 +35,7 @@ public class Trie {
     }
 
     public boolean search(String word) {
-        Trie node = searchPrefix(word);
+        Node node = searchPrefix(word);
         return node != null && node.isEnd;
     }
 
@@ -40,8 +43,8 @@ public class Trie {
         return searchPrefix(prefix) != null;
     }
 
-    private Trie searchPrefix(String prefix) {
-        Trie node = this;
+    private Node searchPrefix(String prefix) {
+        Node node = root;
         for (int i = 0; i < prefix.length(); i++) {
             char c = prefix.charAt(i);
             int index = c - 'a';
