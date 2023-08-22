@@ -13,6 +13,8 @@ import java.util.Scanner;
 public class Solution1 {
 
 	public static int[] top3(int[][] arr, int m, int n) {
+		// 每个选手
+		// 编号、分数及次数、总分
 		int[][] scores = new int[n][12];
 		for (int i = 0; i < n; i++) {
 			scores[i][0] = i + 1;

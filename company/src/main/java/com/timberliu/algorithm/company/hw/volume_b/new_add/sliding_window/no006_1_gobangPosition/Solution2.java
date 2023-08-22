@@ -17,41 +17,42 @@ import java.util.Scanner;
  * @date 2023/5/24
  */
 
-public class Solution1 {
+public class Solution2 {
 
 	public static int gobangPosition(int[] arr, int val) {
-		int[] count = new int[3];
-		int mid = (arr.length - 1) / 2;
-		int res = 0;
 		int maxLen = 0;
+		int minDist = arr.length / 2;
+		int res = -1;
+		for (int i = 0; i < arr.length; i++) {
+			if (arr[i] == 0) {
+				int leftIndex = i - 1;
+				int leftCnt = 0;
+				while (leftIndex >= 0 && arr[leftIndex] == val && leftCnt < 5) {
+					leftCnt++;
+					leftIndex--;
+				}
+				maxLen = Math.max(maxLen, leftCnt);
 
-		int lastPos = 0;
-		int left = 0, right = 0;
-		while (right < arr.length) {
-			count[arr[right] + 1]++;
-			// 对手的子、窗口大于5、0 的个数大于1
-			while (arr[left] == -val || right - left + 1 > 5 || count[arr[1]] > 1) {
-				count[arr[left] + 1]--;
-				left++;
-			}
-			if (arr[right] == -val) {
-				left = ++right;
-				count = new int[3];
-				continue;
-			}
-			if (arr[right] == 0) {
-				lastPos = right;
-			}
-			// 更新 res、maxLen
-			if (right - left + 1 > maxLen) {
-				res = lastPos;
-				maxLen = right - left + 1;
-			} else if (right - left + 1 == maxLen) {
-				if (Math.abs(lastPos - mid) < Math.abs(res - mid)) {
-					res = lastPos;
+				int rightIndex = i + 1;
+				int rightCnt = 0;
+				while (rightIndex < arr.length && arr[rightIndex] == val && rightCnt < 5) {
+					rightCnt++;
+					rightIndex++;
+				}
+				maxLen = Math.max(maxLen, rightCnt);
+
+				int totalCnt = leftCnt + rightCnt;
+				if (totalCnt > 4) {
+					continue;
+				}
+
+				int distToMid = Math.abs(i - arr.length / 2);
+				if (totalCnt > maxLen || (totalCnt == maxLen && distToMid < minDist)) {
+					maxLen = totalCnt;
+					res = i;
+					minDist = distToMid;
 				}
 			}
-			right++;
 		}
 		return res;
 	}

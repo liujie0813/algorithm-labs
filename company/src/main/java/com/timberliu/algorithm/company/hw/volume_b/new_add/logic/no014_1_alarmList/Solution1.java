@@ -25,7 +25,7 @@ public class Solution1 {
 		for (String alarm : arr) {
 			// 没有可以抑制 alarm 的更高等级的告警
 			// 或者没有在告警列表中出现
-			if (!map.containsKey(alarm) || !Collections.disjoint(map.get(alarm), alarmSet)) {
+			if (!map.containsKey(alarm) || Collections.disjoint(map.get(alarm), alarmSet)) {
 				res.add(alarm);
 			}
 			alarmSet.add(alarm);
