@@ -15,24 +15,28 @@ public class Solution1 {
 
 	public static List<Integer> arrayBinaryTree(int[] arr) {
 		List<Integer>[] res = new ArrayList[1];
-		dfs(arr, 1, new ArrayList<>(), res);
+		List<Integer> curPath = new ArrayList<>();
+		curPath.add(arr[1]);
+		dfs(arr, 1, curPath, res);
 		return res[0];
 	}
 
 	private static void dfs(int[] arr, int root, List<Integer> curPath, List<Integer>[] res) {
-		curPath.add(arr[root]);
 		int m = root * 2;
 		if (m >= arr.length || (m + 1 < arr.length && arr[m] == -1 && arr[m + 1] == -1) ) {
+			// 叶子节点，比较最后一个节点
 			if (res[0] == null || curPath.get(curPath.size() - 1) < res[0].get(res[0].size() - 1)) {
 				res[0] = new ArrayList<>(curPath);
 			}
 			return;
 		}
 		if (arr[m] != -1) {
+			curPath.add(arr[m]);
 			dfs(arr, m, curPath, res);
 			curPath.remove(curPath.size() - 1);
 		}
 		if (m + 1 < arr.length && arr[m + 1] != -1) {
+			curPath.add(arr[m + 1]);
 			dfs(arr, m + 1, curPath, res);
 			curPath.remove(curPath.size() - 1);
 		}

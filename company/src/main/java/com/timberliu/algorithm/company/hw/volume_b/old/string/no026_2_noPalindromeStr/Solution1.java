@@ -7,6 +7,8 @@ import java.util.Scanner;
 /**
  * 26. 没有回文串
  *
+ *  下一个字典序、不包含回文串、字符都是前 N 个字母、且长度相同的字符串
+ *
  * @author Timber
  * @date 2023/6/4
  */

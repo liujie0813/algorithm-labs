@@ -13,16 +13,18 @@ import java.util.Scanner;
 public class Solution1 {
 
 	public static int findDest(Integer[] nums) {
-		int[] res = {-1};
+		int[] res = {Integer.MAX_VALUE};
+		// 第一步走完可能在 [1, len/2]
 		for (int i = 1; i <= nums.length / 2; i++) {
 			cal(nums, i, 1, res);
 		}
-		return res[0];
+		return res[0] == Integer.MAX_VALUE ? -1 : res[0];
 	}
 
 	private static void cal(Integer[] nums, int curIndex, int curStep, int[] res) {
 		if (curIndex == nums.length - 1) {
-			res[0] = Math.max(res[0], curStep);
+			res[0] = Math.min(res[0], curStep);
+			return;
 		}
 		int nextIndex = curIndex + nums[curIndex];
 		if (nextIndex < nums.length) {

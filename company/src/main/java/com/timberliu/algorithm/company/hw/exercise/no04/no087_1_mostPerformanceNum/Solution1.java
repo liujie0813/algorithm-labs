@@ -5,6 +5,8 @@ import java.util.Comparator;
 import java.util.Scanner;
 
 /**
+ * 87. 观看文艺汇演问题
+ *
  * @author Timber
  * @date 2023/6/18
  */
