@@ -1,4 +1,4 @@
-package com.timberliu.algorithm.company.hw.volume_b.old.logic_no054_2_turnDice;
+package com.timberliu.algorithm.company.hw.volume_b.old.logic.no054_2_turnDice;
 
 import java.util.Scanner;
 
