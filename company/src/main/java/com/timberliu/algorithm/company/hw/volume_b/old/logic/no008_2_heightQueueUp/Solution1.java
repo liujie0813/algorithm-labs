@@ -1,4 +1,4 @@
-package com.timberliu.algorithm.company.hw.volume_b.old.no008_2_heightQueueUp;
+package com.timberliu.algorithm.company.hw.volume_b.old.logic.no008_2_heightQueueUp;
 
 import com.timberliu.algorithm.company.utils.PrintUtils;
 
