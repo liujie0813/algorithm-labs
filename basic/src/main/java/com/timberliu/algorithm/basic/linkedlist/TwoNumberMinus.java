@@ -29,6 +29,7 @@ public class TwoNumberMinus {
 		ListNode prev = dummy;
 		while (first != null || second != null) {
 			int num = first.val;
+			// 借一位
 			if (second != null && num < second.val) {
 				if (first.next.val > 0) {
 					first.next.val--;

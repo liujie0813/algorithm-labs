@@ -5,6 +5,8 @@ import com.timberliu.algorithm.leetcode.linkedlist.ListNode;
 /**
  * 82. 删除排序链表中的重复元素
  *
+ *   重复元素不保留
+ *
  *   时间复杂度：O(n)
  *   空间复杂度：O(1)
  *

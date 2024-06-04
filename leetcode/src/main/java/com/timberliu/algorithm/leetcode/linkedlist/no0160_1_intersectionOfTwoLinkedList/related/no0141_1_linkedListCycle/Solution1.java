@@ -5,6 +5,8 @@ import com.timberliu.algorithm.leetcode.linkedlist.ListNode;
 /**
  * 141. 环形链表
  *
+ *  判断是否有环：快慢指针
+ *
  * Created by liujie on 2021/3/17
  */
 

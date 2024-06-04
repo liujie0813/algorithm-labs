@@ -18,24 +18,24 @@ public class Solution3 {
         ListNode dummyHead = new ListNode(-1, head);
         // 前一个子链表的最后一个节点
         ListNode prevEnd = dummyHead;
+        // 当前子链表的第一个节点
+        ListNode curStart = head;
         ListNode cur = head;
-        // 当前子链表的最后一个节点
-        ListNode curEnd = head;
-        while (curEnd != null) {
-            for (int i = 1; i < k && curEnd != null; i++) {
-                curEnd = curEnd.next;
+        while (cur != null) {
+            for (int i = 1; i < k && cur != null; i++) {
+                cur = cur.next;
             }
-            if (curEnd == null) {
+            if (cur == null) {
                 break;
             }
             // 下一个节点存下来
-            ListNode nexStart = curEnd.next;
-            curEnd.next = null;
-            prevEnd.next = reverse(cur);
-            cur.next = nexStart;
+            ListNode nexStart = cur.next;
+            cur.next = null;
+            prevEnd.next = reverse(curStart);
+            curStart.next = nexStart;
 
-            prevEnd = cur;
-            curEnd = cur = nexStart;
+            prevEnd = curStart;
+            cur = curStart = nexStart;
         }
         return dummyHead.next;
     }
@@ -64,7 +64,8 @@ public class Solution3 {
         ListNode l3 = new ListNode(3, l2);
         ListNode l4 = new ListNode(4, l3);
         ListNode l5 = new ListNode(5, l4);
-        ListNode head1 = solution1.reverseKGroup(l5, 5);
+        System.out.println(l5);
+        ListNode head1 = solution1.reverseKGroup(l5, 2);
         System.out.println(head1);
     }
 }

@@ -5,6 +5,8 @@ import com.timberliu.algorithm.leetcode.linkedlist.ListNode;
 /**
  * 83. 删除排序链表中的重复元素
  *
+ *   重复元素仅保留一个
+ *
  * Created by liujie on 2021/3/11
  */
 

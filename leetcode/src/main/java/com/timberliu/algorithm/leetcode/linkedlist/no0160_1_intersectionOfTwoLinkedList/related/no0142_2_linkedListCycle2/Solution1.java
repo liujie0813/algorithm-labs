@@ -5,6 +5,10 @@ import com.timberliu.algorithm.leetcode.linkedlist.ListNode;
 /**
  * 142. 环形链表 2
  *
+ *   找到环入口：
+ *    1. 判断是否有环
+ *    2. 从链表头和相交节点同时遍历，再次相交处为环入口
+ *
  * Created by liujie on 2021/3/17
  */
 
