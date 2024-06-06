@@ -35,9 +35,9 @@ public class Solution1 {
         int pivot = nums[left];
         int i = left, j = right + 1;
         while (true) {
-            while (nums[++i] > pivot && i < right) {
+            while (i < right && nums[++i] > pivot) {
             }
-            while (nums[--j] < pivot && j > left) {
+            while (j > left && nums[--j] < pivot) {
             }
             if (i >= j) {
                 break;
@@ -63,7 +63,7 @@ public class Solution1 {
         System.out.println(findKthLargest(new int[]{7,6,5,4,3,2,1}, 5));
 
         System.out.println("----- 4 -----");
-        System.out.println(findKthLargest(new int[]{1}, 1));
+        System.out.println(findKthLargest(new int[]{3,3,3,3,3,3,3,3,3}, 1));
 
     }
 }

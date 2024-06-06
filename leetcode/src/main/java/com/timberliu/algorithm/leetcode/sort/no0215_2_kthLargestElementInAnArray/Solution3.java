@@ -20,9 +20,9 @@ public class Solution3 {
     public static int findKthLargest(int[] nums, int k) {
         int N = nums.length - 1;
         buildMaxHeap(nums, N);
-        for (int i = N; i > nums.length - k; i--) {
+        for (int i = N; i > nums.length - k;) {
             swap(nums, 0, i);
-            sink(nums, 0, --N);
+            sink(nums, 0, --i);
         }
         return nums[0];
     }

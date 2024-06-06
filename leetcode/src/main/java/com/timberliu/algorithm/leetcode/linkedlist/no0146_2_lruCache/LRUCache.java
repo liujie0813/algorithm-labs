@@ -10,7 +10,7 @@ import java.util.Map;
  * @date 2024/6/4
  */
 
-public class LFUCache {
+public class LRUCache {
 
 	static class Node {
 		private int key, value;
@@ -26,7 +26,7 @@ public class LFUCache {
 	private Node head;
 	private int capacity;
 
-	public LFUCache(int capacity) {
+	public LRUCache(int capacity) {
 		this.map = new HashMap<>();
 		this.capacity = capacity;
 		this.head = new Node(-1, -1);
@@ -74,7 +74,7 @@ public class LFUCache {
 	}
 
 	public static void main(String[] args) {
-		LFUCache lruCache = new LFUCache(2);
+		LRUCache lruCache = new LRUCache(2);
 		lruCache.put(1, 1);
 		lruCache.put(2, 2);
 		System.out.println(lruCache.get(1));

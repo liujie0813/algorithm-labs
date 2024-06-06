@@ -24,8 +24,10 @@ public class Solution1 {
         int max = 0;
         for (int i = 0; i < s.length(); i++) {
             char ch = s.charAt(i);
+            // 字符达到 k，且出现新字符
             if (!map.containsKey(ch) && map.size() == k) {
                 int minRight = Integer.MAX_VALUE;
+                // 找到最小的 right index
                 for (Integer val : map.values()) {
                     if (val < minRight) {
                         minRight = val;
