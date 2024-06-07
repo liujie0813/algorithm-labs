@@ -29,6 +29,9 @@ public class Solution2 {
 
         List<List<Integer>> res = new ArrayList<>();
         for (int i = 0; i < nums.length - 2; i++) {
+            if (nums[i] > 0) {
+                return res;
+            }
             // 排除重复组合
             if (i > 0 && nums[i] == nums[i - 1]) {
                 continue;
@@ -70,7 +73,10 @@ public class Solution2 {
 
         List<List<Integer>> res = new ArrayList<>();
         for (int i = 0; i < nums.length - 2; i++) {
-            // 排除重复组合
+            if (nums[i] > 0) {
+                return res;
+            }
+            // 去重
             if (i > 0 && nums[i] == nums[i - 1]) {
                 continue;
             }
@@ -81,6 +87,7 @@ public class Solution2 {
                 int tmp = nums[left] + nums[right];
                 if (tmp == target) {
                     res.add(Arrays.asList(nums[i], nums[left], nums[right]));
+                    // 去重
                     do {
                         left++;
                     } while (left < right && nums[left] == nums[left - 1]);

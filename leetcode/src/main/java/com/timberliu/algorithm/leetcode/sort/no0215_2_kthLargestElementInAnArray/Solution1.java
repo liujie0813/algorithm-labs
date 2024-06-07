@@ -34,7 +34,7 @@ public class Solution1 {
     private static int pivot(int[] nums, int left, int right) {
         int pivot = nums[left];
         int i = left, j = right + 1;
-        while (true) {
+        while (i <= j) {
             while (i < right && nums[++i] > pivot) {
             }
             while (j > left && nums[--j] < pivot) {

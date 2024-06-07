@@ -41,6 +41,29 @@ public class Solution1 {
         return -1;
     }
 
+    public static int search1(int[] nums, int target) {
+        int left = 0, right = nums.length - 1;
+        while (left <= right) {
+            int mid = (left + right) >>> 1;
+            if (nums[mid] == target) {
+                return mid;
+            } else if (nums[left] <= nums[mid]) {
+                if (nums[left] <= target && target < nums[mid]) {
+                    right = mid - 1;
+                } else {
+                    left = mid + 1;
+                }
+            } else {
+                if (nums[mid] < target && target <= nums[right]) {
+                    left = mid + 1;
+                } else {
+                    right = mid - 1;
+                }
+            }
+        }
+        return -1;
+    }
+
     public static void main(String[] args) {
         System.out.println("----- https://leetcode-cn.com/problems/search-in-rotated-sorted-array/ -----");
         System.out.println("----- 1 -----");
@@ -51,5 +74,8 @@ public class Solution1 {
 
         System.out.println("----- 3 -----");
         System.out.println(search(new int[]{1}, 0));
+
+        System.out.println("----- 4 -----");
+        System.out.println(search(new int[]{3,1}, 1));
     }
 }
