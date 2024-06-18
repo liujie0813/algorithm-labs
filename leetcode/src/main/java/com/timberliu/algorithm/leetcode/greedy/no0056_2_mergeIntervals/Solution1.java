@@ -34,7 +34,7 @@ public class Solution1 {
 			}
 		}
 		res.add(new int[]{start, end});
-		return res.toArray(new int[res.size()][2]);
+		return res.toArray(new int[res.size()][]);
     }
 
     public static void main(String[] args) {

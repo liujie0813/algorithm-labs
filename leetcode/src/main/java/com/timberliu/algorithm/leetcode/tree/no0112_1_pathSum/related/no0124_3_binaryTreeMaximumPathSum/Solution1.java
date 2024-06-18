@@ -3,6 +3,7 @@ package com.timberliu.algorithm.leetcode.tree.no0112_1_pathSum.related.no0124_3_
 import com.timberliu.algorithm.leetcode.tree.TreeNode;
 
 import java.util.Arrays;
+import java.util.StringJoiner;
 
 /**
  * 124. 二叉树中的最大路径和
@@ -41,6 +42,7 @@ public class Solution1 {
 
         System.out.println("----- 2 -----");
         System.out.println(maxPathSum(TreeNode.buildTree(Arrays.asList(1, 2, 3))));
-
+        StringJoiner stringJoiner = new StringJoiner(".");
+        stringJoiner.toString();
     }
 }

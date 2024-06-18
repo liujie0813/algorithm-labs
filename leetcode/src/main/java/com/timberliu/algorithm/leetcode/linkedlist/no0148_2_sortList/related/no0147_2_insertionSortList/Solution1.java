@@ -79,5 +79,7 @@ public class Solution1 {
         Solution1 solution1 = new Solution1();
         ListNode newHead = solution1.insertionSortList1(l6);
         System.out.println(newHead);
+
+        System.out.println(Integer.MAX_VALUE / 10);
     }
 }

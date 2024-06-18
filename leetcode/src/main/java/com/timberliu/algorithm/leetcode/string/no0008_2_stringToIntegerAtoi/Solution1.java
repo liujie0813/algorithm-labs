@@ -42,10 +42,10 @@ public class Solution1 {
                 return negative ? Integer.MIN_VALUE : Integer.MAX_VALUE;
             }
             if (res == intAbsHigh) {
-                if (negative && val > 8) {
+                if (negative && val >= 8) {
                     return Integer.MIN_VALUE;
                 }
-                if (!negative && val > 7) {
+                if (!negative && val >= 7) {
                     return Integer.MAX_VALUE;
                 }
             }
@@ -77,7 +77,7 @@ public class Solution1 {
         System.out.println(myAtoi("-91283472332"));
 
         System.out.println("----- 6 -----");
-        System.out.println(myAtoi("-2147483648"));
+        System.out.println(myAtoi("-21474836482"));
 
         System.out.println("----- 7 -----");
         System.out.println(myAtoi("2147483648"));
