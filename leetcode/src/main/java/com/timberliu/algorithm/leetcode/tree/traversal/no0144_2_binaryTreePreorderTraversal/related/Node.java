@@ -1,4 +1,4 @@
-package com.timberliu.algorithm.leetcode.tree.no0144_2_binaryTreePreorderTraversal.related;
+package com.timberliu.algorithm.leetcode.tree.traversal.no0144_2_binaryTreePreorderTraversal.related;
 
 import java.util.List;
 

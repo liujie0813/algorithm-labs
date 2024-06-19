@@ -1,4 +1,4 @@
-package com.timberliu.algorithm.leetcode.tree.no0637_1_averageOfLevelsInBinaryTree;
+package com.timberliu.algorithm.leetcode.tree.traversal.no0637_1_averageOfLevelsInBinaryTree;
 
 import com.timberliu.algorithm.leetcode.tree.TreeNode;
 

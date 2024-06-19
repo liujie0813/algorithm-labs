@@ -1,6 +1,6 @@
-package com.timberliu.algorithm.leetcode.tree.no0144_2_binaryTreePreorderTraversal.related.no0429_1_NaryTreeLevelorderTraversal;
+package com.timberliu.algorithm.leetcode.tree.traversal.no0144_2_binaryTreePreorderTraversal.related.no0429_1_NaryTreeLevelorderTraversal;
 
-import com.timberliu.algorithm.leetcode.tree.no0144_2_binaryTreePreorderTraversal.related.Node;
+import com.timberliu.algorithm.leetcode.tree.traversal.no0144_2_binaryTreePreorderTraversal.related.Node;
 
 import java.util.ArrayList;
 import java.util.Deque;

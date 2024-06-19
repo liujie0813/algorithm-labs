@@ -1,4 +1,4 @@
-package com.timberliu.algorithm.leetcode.tree.no0144_2_binaryTreePreorderTraversal.related.no0987_2_verticalOrderTraversalOfABinaryTree;
+package com.timberliu.algorithm.leetcode.tree.traversal.no0144_2_binaryTreePreorderTraversal.related.no0987_2_verticalOrderTraversalOfABinaryTree;
 
 import com.timberliu.algorithm.leetcode.tree.TreeNode;
 
@@ -11,12 +11,11 @@ import java.util.stream.Collectors;
  * Created by liujie on 2021/6/29
  */
 
-public class Solution1 {
+public class Solution2 {
 
     private class Node implements Comparable<Node> {
 
         private Integer y;
-
         private Integer value;
 
         public Node(Integer y, Integer value) {
@@ -55,6 +54,9 @@ public class Solution1 {
         return res;
     }
 
+    /**
+     * dfs 深度遍历（打坐标）
+     */
     public void dfs(TreeNode root, int x, int y) {
         if (root == null) {
             return;
@@ -72,7 +74,7 @@ public class Solution1 {
     public static void main(String[] args) {
         System.out.println("----- https://leetcode-cn.com/problems/vertical-order-traversal-of-a-binary-tree/ -----");
         System.out.println("----- 1 -----");
-        Solution1 solution1 = new Solution1();
+        Solution2 solution1 = new Solution2();
         System.out.println(solution1.verticalTraversal(TreeNode.buildTree(Arrays.asList(3,9,20,null,null,15,7))));
 
     }

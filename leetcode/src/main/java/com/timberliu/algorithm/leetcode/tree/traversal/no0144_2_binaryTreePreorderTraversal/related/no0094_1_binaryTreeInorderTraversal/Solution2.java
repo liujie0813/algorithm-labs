@@ -1,30 +1,34 @@
-package com.timberliu.algorithm.leetcode.tree.no0144_2_binaryTreePreorderTraversal.related.no0094_1_binaryTreeInorderTraversal;
+package com.timberliu.algorithm.leetcode.tree.traversal.no0144_2_binaryTreePreorderTraversal.related.no0094_1_binaryTreeInorderTraversal;
 
 import com.timberliu.algorithm.leetcode.tree.TreeNode;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 /**
+ * 中序遍历
+ *
+ *  迭代法
+ *
  * Created by liujie on 2021/6/29
  */
 
-public class Solution1 {
+public class Solution2 {
 
     public static List<Integer> inorderTraversal(TreeNode root) {
-        List<Integer> inorderList = new ArrayList<>();
-        inorderTraversal(root, inorderList);
-        return inorderList;
-    }
-
-    public static void inorderTraversal(TreeNode root, List<Integer> res) {
-        if (root == null) {
-            return;
+        List<Integer> res = new ArrayList<>();
+        Deque<TreeNode> stack = new LinkedList<>();
+        TreeNode cur = root;
+        while (cur != null || !stack.isEmpty()) {
+            if (cur != null) {
+                stack.push(cur);
+                cur = cur.left;
+            } else {
+                cur = stack.pop();
+                res.add(cur.val);
+                cur = cur.right;
+            }
         }
-        inorderTraversal(root.left, res);
-        res.add(root.val);
-        inorderTraversal(root.right, res);
+        return res;
     }
 
     public static void main(String[] args) {
