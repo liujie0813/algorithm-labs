@@ -1,5 +1,7 @@
 package com.timberliu.algorithm.leetcode.dp.linear.no0053_1_maximumSubarray;
 
+import java.util.Arrays;
+
 /**
  * 53. 最大子序和
  *
@@ -29,10 +31,32 @@ public class Solution3 {
 		return result;
 	}
 
+	public static int[] maxSubArray1(int[] nums) {
+		int start = 0, end = 0;
+		int max = Integer.MIN_VALUE;
+		int sum = 0;
+		for (int i = 0; i < nums.length; i++) {
+			if (sum < 0) {
+				sum = nums[i];
+				start = i;
+			} else {
+				sum += nums[i];
+			}
+			if (sum > max) {
+				end = i;
+				max = sum;
+			} else if (sum == max) {
+				end = i;
+			}
+		}
+		return new int[]{start, end};
+	}
+
 	public static void main(String[] args) {
 		System.out.println("----- https://leetcode-cn.com/problems/maximum-subarray/ -----");
 		System.out.println("----- 1 -----");
 		System.out.println(maxSubArray(new int[]{-2,1,-3,4,-1,2,1,-5,4}));
+		System.out.println(Arrays.toString(maxSubArray1(new int[]{-2,1,-3,4,-1,2,1,-5,4})));
 
 		System.out.println("----- 2 -----");
 		System.out.println(maxSubArray(new int[]{1}));
