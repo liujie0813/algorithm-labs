@@ -28,7 +28,7 @@ public class MinStack2 {
     }
 
     public void pop() {
-        if (stack.peek() <= minStack.peek()) {
+        if (stack.peek().intValue() == minStack.peek().intValue()) {
             minStack.pop();
         }
         stack.pop();
@@ -46,16 +46,15 @@ public class MinStack2 {
         System.out.println("----- https://leetcode-cn.com/problems/min-stack/ -----");
         System.out.println("----- 1 -----");
         MinStack2 minStack = new MinStack2();
-        minStack.push(-2);
-        minStack.push(0);
-        minStack.push(-3);
-        minStack.push(-3);
-        int min = minStack.getMin();
-        System.out.println(min);
+        minStack.push(512);
+        minStack.push(-1024);
+        minStack.push(-1024);
+        minStack.push(512);
         minStack.pop();
-        int top = minStack.top();
-        System.out.println(top);
-        int min1 = minStack.getMin();
-        System.out.println(min1);
+        System.out.println(minStack.getMin());
+        minStack.pop();
+        System.out.println(minStack.getMin());
+        minStack.pop();
+        System.out.println(minStack.getMin());
     }
 }

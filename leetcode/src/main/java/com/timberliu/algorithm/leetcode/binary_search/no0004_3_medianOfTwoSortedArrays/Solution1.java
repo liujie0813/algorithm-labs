@@ -1,6 +1,10 @@
 package com.timberliu.algorithm.leetcode.binary_search.no0004_3_medianOfTwoSortedArrays;
 
 /**
+ * 4. 两个正序数组的中位数
+ *
+ *  求中位数，即求第 k 小的数
+ *
  * @author liujie
  * @date 2022/2/23
  */
@@ -50,11 +54,11 @@ public class Solution1 {
 		System.out.println("----- https://leetcode-cn.com/problems/median-of-two-sorted-arrays/ -----");
 		Solution1 solution1 = new Solution1();
 		System.out.println("----- 1 -----");
-		System.out.println(solution1.findMedianSortedArrays(new int[]{1, 3},
+		System.out.println(solution1.findMedianSortedArrays1(new int[]{1, 3},
 				new int[]{2}));
 
 		System.out.println("----- 2 -----");
-		System.out.println(solution1.findMedianSortedArrays(new int[]{1, 2},
+		System.out.println(solution1.findMedianSortedArrays1(new int[]{1, 2},
 				new int[]{3, 4}));
 
 	}
