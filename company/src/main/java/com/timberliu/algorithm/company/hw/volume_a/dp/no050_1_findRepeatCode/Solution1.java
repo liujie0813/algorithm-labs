@@ -37,6 +37,25 @@ public class Solution1 {
 		return first.substring(start, start + maxLen);
 	}
 
+	public static String findRepeatCode2(String first, String second) {
+		int m = first.length(), n = second.length();
+		int[] dp = new int[n + 1];
+
+		int maxLen = 0, start = 0;
+		for (int i = 1; i <= m; i++) {
+			for (int j = 1; j <= n; j++) {
+				if (first.charAt(i - 1) == second.charAt(j - 1)) {
+					dp[j] = dp[j - 1] + 1;
+				}
+				if (dp[j] > maxLen) {
+					maxLen = dp[j];
+					start = i - maxLen;
+				}
+			}
+		}
+		return first.substring(start, start + maxLen);
+	}
+
 	/**
 	 * private_void_method
 	 * public_void_method
