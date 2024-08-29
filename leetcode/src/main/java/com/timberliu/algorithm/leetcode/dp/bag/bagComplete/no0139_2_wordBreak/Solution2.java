@@ -48,7 +48,7 @@ public class Solution2 {
 
 		for (int i = 0; i < n; i++) {
 			// 如果 dp[i] 为 true，表示可以拼出，后面不用再判断了
-			for (int j = 0; j <= i && !dp[i]; j++) {
+			for (int j = 0; j <= i; j++) {
 				String subStr = s.substring(j, i + 1);
 				if (set.contains(subStr)) {
 					if (j >= 1) {
@@ -56,6 +56,9 @@ public class Solution2 {
 					} else {
 						dp[i] = true;
 					}
+				}
+				if (dp[i]) {
+					break;
 				}
 			}
 		}
