@@ -8,7 +8,7 @@ import java.util.Arrays;
  * 236. 二叉树的最近公共祖先
  *
  *   如果 root 是 p、q 的最近公共祖先，有三种情况：
- *     1. p 和 q 和 root 的子树中，且分列 root 的两侧
+ *     1. p 和 q 在 root 的子树中，且分列 root 的两侧
  *     2. p = root，且 q 在左（或右）子树中
  *     3. q = root，且 p 在左（或右）子树中
  *
