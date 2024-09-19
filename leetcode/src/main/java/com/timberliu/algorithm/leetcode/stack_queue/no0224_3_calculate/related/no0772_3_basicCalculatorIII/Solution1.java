@@ -1,4 +1,4 @@
-package com.timberliu.algorithm.leetcode.stack_queue.no0772_3_basicCalculator;
+package com.timberliu.algorithm.leetcode.stack_queue.no0224_3_calculate.related.no0772_3_basicCalculatorIII;
 
 import java.util.Deque;
 import java.util.HashMap;
@@ -7,6 +7,8 @@ import java.util.Map;
 
 /**
  * 772. 基本计算器 III
+ *
+ *  包括 +、-、*、/、(、) 运算符
  *
  * @author liujie
  * @date 2021/9/7
@@ -69,8 +71,8 @@ public class Solution1 {
 	}
 
 	private static boolean priority(char a, char b) {
-		if ((a == '*' || a == '-')
-			&& (b == '+' || b == '/')) {
+		if ((a == '*' || a == '/')
+			&& (b == '+' || b == '-')) {
 			return true;
 		}
 		if (b == '(') {

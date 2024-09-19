@@ -6,6 +6,8 @@ import java.util.LinkedList;
 /**
  * 1004. 最大连续 1 的个数 iii
  *
+ * 可以翻转最多 k 个 0
+ *
  * @author liujie
  * @date 2024/8/28
  */

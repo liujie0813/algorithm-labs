@@ -5,6 +5,8 @@ import com.timberliu.algorithm.leetcode.linkedlist.ListNode;
 /**
  * 61. 旋转链表
  *
+ *  先连成环，再从 k 处断开
+ *
  * Created by liujie on 2021/3/11
  */
 
@@ -14,26 +16,25 @@ public class Solution1 {
         if (head == null) {
             return null;
         }
-        int count = 0;
+        int count = 1;
         ListNode cur = head;
-        ListNode tail = null;
-        while (cur != null) {
-            if (cur.next == null) {
-                tail = cur;
-            }
+        while (cur.next != null) {
             cur = cur.next;
             count++;
         }
         k = k % count;
-        ListNode dummyHead = new ListNode(-1, head);
-        ListNode prev = dummyHead;
+        if (k == 0) {
+            return head;
+        }
+        // 此时 cur 指向尾节点
+        cur.next = head;
+        ListNode prev = cur;
         for (int i = k; i < count; i++) {
             prev = prev.next;
         }
-        tail.next = dummyHead.next;
-        dummyHead.next = prev.next;
+        ListNode newHead = prev.next;
         prev.next = null;
-        return dummyHead.next;
+        return newHead;
     }
 
     public static void main(String[] args) {
@@ -45,7 +46,7 @@ public class Solution1 {
         ListNode l3 = new ListNode(3, l2);
         ListNode l4 = new ListNode(4, l3);
         ListNode l5 = new ListNode(5, l4);
-        ListNode head1 = solution1.rotateRight(l5, 0);
+        ListNode head1 = solution1.rotateRight(l5, 2);
         System.out.println(head1);
 
     }
