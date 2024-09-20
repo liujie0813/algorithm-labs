@@ -2,7 +2,7 @@ package com.timberliu.algorithm.leetcode.array.slide_window.no0209_2_minimumSize
 
 /**
  * 209. 长度最小的子数组
- *   和等于 target 的子数组的最小长度
+ *   和大于等于 target 的子数组的最小长度
  *
  *  滑动窗口
  *   1. end 遍历不断右移
