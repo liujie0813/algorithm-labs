@@ -3,6 +3,8 @@ package com.timberliu.algorithm.leetcode.binary_search.no0852_1_peakIndexInAMoun
 /**
  * 852. 山脉数组的峰顶索引
  *
+ *   比较 (mid, mid+1)
+ *
  * Created by liujie on 2021/3/23
  */
 

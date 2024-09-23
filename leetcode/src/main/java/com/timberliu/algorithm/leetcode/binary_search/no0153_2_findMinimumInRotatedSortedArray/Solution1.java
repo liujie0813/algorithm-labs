@@ -2,6 +2,8 @@ package com.timberliu.algorithm.leetcode.binary_search.no0153_2_findMinimumInRot
 
 /**
  * 153. 寻找旋转排序数组中的最小值
+ *   所有整数原来升序排列，且互不相同
+ *
  *
  *   原理？
  *     情况：a. 1,2,3,4,5,6,7

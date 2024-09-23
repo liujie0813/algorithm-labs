@@ -46,7 +46,7 @@ public class Solution1 {
 				char b = s2.charAt(j - 1);
 				char c = s3.charAt(i + j - 1);
 				if (a == c || b == c) {
-					dp[i][j] = dp[i - 1][j] | dp[i][j - 1];
+					dp[i][j] = dp[i - 1][j] || dp[i][j - 1];
 				}
 			}
 		}
