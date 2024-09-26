@@ -3,6 +3,8 @@ package com.timberliu.algorithm.leetcode.dp.bag.bagComplete.no0518_2_coinChange2
 /**
  * 518. 零钱兑换 II
  *
+ *  每个硬币有无限个
+ *
  *  状态定义：f[i][j] 考虑前 i 件物品，凑成总和为 j 的方案数量
  *
  *

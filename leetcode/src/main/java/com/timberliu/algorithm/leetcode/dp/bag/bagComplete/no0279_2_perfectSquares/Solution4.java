@@ -27,6 +27,7 @@ public class Solution4 {
 	public int numSquares(int n) {
 		int[] dp = new int[n + 1];
 		// 0 个数
+		dp[0] = 0;
 		for (int j = 1; j <= n; j++) {
 			dp[j] = INF;
 		}
